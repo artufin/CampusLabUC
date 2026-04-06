@@ -1,5 +1,12 @@
+import Link from "next/link";
+
 export default function Home() {
-  const navItems = ["Datos Abiertos", "Oportunidades", "Nosotros"];
+  const navItems = [
+    { label: "Inicio", href: "/" },
+    { label: "Datos Abiertos", href: "/datos-abiertos" },
+    { label: "Oportunidades", href: "#" },
+    { label: "Nosotros", href: "#" },
+  ];
 
   return (
     <main className="min-h-screen w-full px-4 py-6 sm:px-6 lg:px-10">
@@ -18,13 +25,13 @@ export default function Home() {
           className="mt-5 flex w-full flex-wrap items-center gap-3 border-t border-black/10 pt-4"
         >
           {navItems.map((item) => (
-            <a
-              key={item}
-              href="#"
+            <Link
+              key={item.label}
+              href={item.href}
               className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-white hover:text-slate-950"
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
         </nav>
       </header>
