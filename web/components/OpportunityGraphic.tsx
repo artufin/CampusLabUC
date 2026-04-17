@@ -1,12 +1,6 @@
 import Image from "next/image";
 
-const LAYERS = [
-  { src: "/assets/opportunity-shape/outer.svg", className: "layer-outer" },
-  { src: "/assets/opportunity-shape/layer-3.svg", className: "layer-3" },
-  { src: "/assets/opportunity-shape/layer-2.svg", className: "layer-2" },
-  { src: "/assets/opportunity-shape/layer-1.svg", className: "layer-1" },
-  { src: "/assets/opportunity-shape/center.svg", className: "layer-center" },
-] as const;
+const GRAPHIC_SRC = "/assets/icons/desafios.svg";
 
 const LABELS = [
   {
@@ -38,30 +32,14 @@ const LABELS = [
 export function OpportunityGraphic() {
   return (
     <div className="opportunity-graphic">
-      {LAYERS.map((layer) => (
-        <Image
-          key={layer.src}
-          src={layer.src}
-          alt=""
-          width={430}
-          height={560}
-          className={`opportunity-layer ${layer.className}`}
-          aria-hidden="true"
-        />
-      ))}
-
-      {LABELS.map((label) => (
-        <div key={label.id} className={`opportunity-label ${label.className}`}>
-          <Image
-            src={label.icon}
-            alt=""
-            width={20}
-            height={20}
-            aria-hidden="true"
-          />
-          <span>{label.title}</span>
-        </div>
-      ))}
+      <Image
+        src={GRAPHIC_SRC}
+        alt=""
+        width={459}
+        height={583}
+        className="opportunity-layer layer-outer"
+        aria-hidden="true"
+      />
     </div>
   );
 }
