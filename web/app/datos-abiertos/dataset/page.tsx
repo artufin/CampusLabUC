@@ -1,74 +1,50 @@
 import Link from "next/link";
+import { SiteShell } from "@/components/SiteShell";
+
+const DOWNLOADS = [
+  "CSV consolidado de indicadores",
+  "JSON de metadatos",
+  "Ficha metodologica (PDF)",
+  "Diccionario de variables",
+];
 
 export default function DatasetPage() {
-  const navItems = [
-    { label: "Inicio", href: "/" },
-    { label: "Datos Abiertos", href: "/datos-abiertos" },
-    { label: "Oportunidades", href: "#" },
-    { label: "Nosotros", href: "#" },
-  ];
-
   return (
-    <main className="min-h-screen w-full px-4 py-6 sm:px-6 lg:px-10">
-      <header className="w-full border-b border-black/10 pb-6">
-        <div className="space-y-3">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-slate-500">
-            LabVivo UC
+    <SiteShell currentPath="/datos-abiertos">
+      <div className="page-stack">
+        <h1 className="page-title">Dataset</h1>
+        <p className="page-intro">
+          Esta vista queda disponible para mostrar detalle de cada conjunto de
+          datos y sus formatos de descarga.
+        </p>
+
+        <article className="info-card" style={{ marginBottom: 22 }}>
+          <h3 style={{ marginBottom: 8 }}>Visualizacion del dataset</h3>
+          <p>
+            Espacio reservado para graficos, filtros y trazabilidad de origen.
+            Al conectar la API, este bloque puede renderizar componentes de
+            analitica en tiempo real.
           </p>
-          <h1 className="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-            Dataset
-          </h1>
-        </div>
-
-        <nav
-          aria-label="Navegación principal"
-          className="mt-5 flex w-full flex-wrap items-center gap-3 border-t border-black/10 pt-4"
-        >
-          {navItems.map((item) => {
-            const isActive = item.label === "Datos Abiertos";
-
-            return (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                  isActive
-                    ? "border-slate-900 bg-slate-900 text-white"
-                    : "border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 hover:bg-white hover:text-slate-950"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
-      </header>
-
-      <section className="mt-6 w-full">
-        <article className="flex min-h-[18rem] w-full flex-col rounded-[1.5rem] border border-dashed border-slate-300 bg-slate-700 p-6 text-white sm:p-8">
-          <div className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-300">
-              Dataset
-            </p>
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-              Gráficos del dataset
-            </h2>
-          </div>
         </article>
-      </section>
 
-      <section className="mt-6 w-full">
-        <article className="flex min-h-[24rem] w-full flex-col rounded-[1.5rem] border border-dashed border-slate-300 bg-slate-50 p-6 sm:p-8">
-          <div className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">
-              Descargas
-            </p>
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
-              Opciones de descarga
-            </h2>
-          </div>
+        <article className="info-card">
+          <h3 style={{ marginBottom: 8 }}>Descargas</h3>
+          <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.7 }}>
+            {DOWNLOADS.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+
+          <p style={{ marginTop: 12 }}>
+            <Link
+              href="/datos-abiertos"
+              style={{ textDecoration: "underline" }}
+            >
+              Volver a Datos Abiertos
+            </Link>
+          </p>
         </article>
-      </section>
-    </main>
+      </div>
+    </SiteShell>
   );
 }

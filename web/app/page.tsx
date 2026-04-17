@@ -1,66 +1,128 @@
-import Link from "next/link";
+import Image from "next/image";
+import { CircleHighlights } from "@/components/CircleHighlights";
+import { EmptyState } from "@/components/EmptyState";
+import { HomeHero } from "@/components/HomeHero";
+import { LatestExperiencesCarousel } from "@/components/LatestExperiencesCarousel";
+import { PersonCard } from "@/components/PersonCard";
+import { SiteShell } from "@/components/SiteShell";
+import { SponsorBand } from "@/components/SponsorBand";
+import {
+  getLatestExperiences,
+  getPeopleByGroup,
+  getSponsors,
+} from "@/lib/labvivo-data";
 
-export default function Home() {
-  const navItems = [
-    { label: "Inicio", href: "/" },
-    { label: "Datos Abiertos", href: "/datos-abiertos" },
-    { label: "Oportunidades", href: "#" },
-    { label: "Nosotros", href: "#" },
-  ];
+export default async function Home() {
+  const [academicPeople, sponsors, experiences] = await Promise.all([
+    getPeopleByGroup("academic"),
+    getSponsors(),
+    getLatestExperiences(6),
+  ]);
 
   return (
-    <main className="min-h-screen w-full px-4 py-6 sm:px-6 lg:px-10">
-      <header className="w-full border-b border-black/10 pb-6">
-        <div className="space-y-3">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-slate-500">
-            LabVivo UC
-          </p>
-          <h1 className="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-            LabVivo UC
-          </h1>
-        </div>
+    <SiteShell currentPath="/">
+      <HomeHero />
 
-        <nav
-          aria-label="Navegación principal"
-          className="mt-5 flex w-full flex-wrap items-center gap-3 border-t border-black/10 pt-4"
-        >
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-white hover:text-slate-950"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-      </header>
+      <div className="page-stack">
+        <CircleHighlights />
 
-      <section className="mt-6 w-full">
-        <article className="flex min-h-[18rem] w-full flex-col justify-between rounded-[1.5rem] border border-dashed border-slate-300 bg-slate-50 p-6 sm:p-8">
-          <div className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">
-              Bloque de texto
+        <section className="content-split">
+          <article className="copy-block">
+            <h2>Sobre la iniciativa</h2>
+            <p>
+              Los Laboratorios Vivos de Aprendizaje son una innovacion educativa
+              que utiliza los campus universitarios como escenarios de
+              aprendizaje, experimentacion y co-creacion. Este modelo promueve
+              la colaboracion activa entre academia, gestion universitaria y
+              comunidades para enfrentar desafios relacionados con la
+              sostenibilidad.
             </p>
-            <h2 className="max-w-3xl text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
-              Definición, pilares, desafíos, propuesta de valor.
-            </h2>
-          </div>
-        </article>
-      </section>
+          </article>
 
-      <section className="mt-6 w-full">
-        <aside className="flex min-h-[18rem] w-full flex-col rounded-[1.5rem] border border-dashed border-slate-300 bg-slate-700 p-6 text-white sm:p-8">
-          <div className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-300">
-              Carrusel
-            </p>
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-              Tarrjetas de últimas experiencias
-            </h2>
+          <div className="media-card">
+            <Image
+              src="/assets/photos/sobre_la_iniciativa.png"
+              alt="Sesion de trabajo en laboratorio vivo"
+              fill
+              sizes="(max-width: 1060px) 100vw, 50vw"
+            />
           </div>
-        </aside>
-      </section>
-    </main>
+        </section>
+
+        <section className="highlight-strip">
+          <div className="placeholder-boxes" aria-hidden="true">
+            <div className="placeholder-box" />
+            <div className="placeholder-box" />
+          </div>
+
+          <article>
+            <h2>Objetivos</h2>
+            <p>
+              Esta iniciativa promueve aprendizajes con impacto real en los
+              campus y su entorno.
+            </p>
+            <ol>
+              <li>
+                Integrar academia y gestion para responder a necesidades
+                territoriales con enfoque sostenible.
+              </li>
+              <li>
+                Desarrollar proyectos innovadores y escalables que puedan
+                replicarse en distintos contextos.
+              </li>
+              <li>
+                Visibilizar resultados y aprendizajes para fortalecer la
+                colaboracion entre actores.
+              </li>
+            </ol>
+          </article>
+        </section>
+
+        <section className="content-split">
+          <article className="copy-block">
+            <h2>Pilares</h2>
+            <p>
+              Aprendizaje situado, colaboracion interdisciplinaria y accion con
+              impacto medible en el entorno universitario.
+            </p>
+          </article>
+
+          <div className="media-card" aria-hidden="true" />
+        </section>
+
+        <section className="content-split">
+          <article className="copy-block">
+            <h2>Propuesta de valor</h2>
+            <p>
+              Vincular docencia, investigacion y extension en una sola
+              experiencia para que cada desafio del campus se convierta en una
+              oportunidad real de aprendizaje.
+            </p>
+          </article>
+
+          <div className="media-card" aria-hidden="true" />
+        </section>
+
+        <section>
+          <h2 className="section-title">Academicos asociados</h2>
+
+          {academicPeople.length > 0 ? (
+            <div className="people-grid">
+              {academicPeople.map((person) => (
+                <PersonCard key={person.id} person={person} />
+              ))}
+            </div>
+          ) : (
+            <EmptyState
+              title="No hay academicos cargados"
+              description="Cuando la API de personas este disponible, esta seccion mostrara los perfiles vinculados al grupo academico."
+            />
+          )}
+        </section>
+
+        <SponsorBand sponsors={sponsors} />
+        <LatestExperiencesCarousel items={experiences} />
+      </div>
+    </SiteShell>
   );
 }
