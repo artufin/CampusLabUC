@@ -18,6 +18,4 @@ No test script is configured yet.
 - Preserve the existing formatting and file organization in the `web` app.
 
 ## Conventions
-- Follow the Next.js 16 warning in [web/AGENTS.md](../web/AGENTS.md) before changing framework-sensitive code.
-- Treat [web/CLAUDE.md](../web/CLAUDE.md) as a pointer to the app-specific agent guidance.
 - Avoid duplicating README content; link to docs instead of restating setup instructions.
