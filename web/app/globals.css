@@ -40,23 +40,51 @@ a {
 .labvivo-shell {
   position: relative;
   min-height: 100vh;
+  --uc-logo-reserve: 220px;
 }
 
-.uc-banner-fixed {
+.top-chrome-fixed {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 60;
-  background: #1f331d;
+}
+
+.uc-banner-fixed {
+  position: relative;
+  background: #0176de;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.uc-banner-logo-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 62;
+  background: #0176de;
+  padding: 6px 14px 18px 12px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0 6px 14px rgba(1, 32, 63, 0.26);
+}
+
+.uc-banner-logo-vector {
+  display: block;
+  width: 172px;
+  height: auto;
 }
 
 .uc-banner-inner {
   max-width: 1240px;
   margin: 0 auto;
   padding: 8px 22px;
+  display: grid;
+  grid-template-columns: var(--uc-logo-reserve) minmax(0, 1fr);
+}
+
+.uc-banner-main {
   display: flex;
+  grid-column: 2;
   align-items: baseline;
   gap: 12px;
   color: #f4f6e9;
@@ -77,11 +105,8 @@ a {
 }
 
 .page-navbar-fixed {
-  position: fixed;
-  top: 36px;
-  left: 0;
-  right: 0;
-  z-index: 59;
+  position: relative;
+  z-index: 61;
   background: linear-gradient(90deg, #5b682f 0%, #6d7d3a 100%);
   border-bottom: 1px solid rgba(33, 65, 32, 0.2);
 }
@@ -90,7 +115,13 @@ a {
   max-width: 1240px;
   margin: 0 auto;
   padding: 15px 22px;
+  display: grid;
+  grid-template-columns: var(--uc-logo-reserve) minmax(0, 1fr);
+}
+
+.page-navbar-main {
   display: flex;
+  grid-column: 2;
   align-items: center;
   justify-content: space-between;
   gap: 22px;
@@ -922,7 +953,7 @@ a {
 }
 
 @media (max-width: 1060px) {
-  .page-navbar-inner {
+  .page-navbar-main {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
@@ -961,15 +992,40 @@ a {
 }
 
 @media (max-width: 740px) {
+  .labvivo-shell {
+    --uc-logo-reserve: 152px;
+  }
+
   .uc-banner-inner,
-  .page-navbar-inner,
   .page-stack {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .page-navbar-inner {
     padding-left: 14px;
     padding-right: 14px;
   }
 
   .page-navbar-home-link {
     font-size: 1.02rem;
+  }
+
+  .uc-banner-logo-block {
+    padding: 4px 10px 12px 8px;
+    border-bottom-right-radius: 14px;
+  }
+
+  .uc-banner-logo-vector {
+    width: 132px;
+  }
+
+  .uc-banner-inner {
+    min-height: 36px;
+  }
+
+  .uc-banner-main {
+    gap: 8px;
   }
 
   .page-navbar-link {

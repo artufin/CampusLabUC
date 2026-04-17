@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { PAGE_NAV_ITEMS } from "@/components/navigation";
@@ -18,38 +19,57 @@ function isNavItemActive(currentPath: string, href: string): boolean {
 export function SiteShell({ children, currentPath }: SiteShellProps) {
   return (
     <div className="labvivo-shell">
-      <header className="uc-banner-fixed">
-        <div className="uc-banner-inner">
-          <p className="uc-banner-title">
-            Pontificia Universidad Catolica de Chile
-          </p>
-          <p className="uc-banner-subtitle">
-            Laboratorios Vivos de Aprendizaje
-          </p>
-        </div>
-      </header>
+      <div className="top-chrome-fixed">
+        <header className="uc-banner-fixed">
+          <div className="uc-banner-logo-block" aria-hidden="true">
+            <Image
+              src="/assets/icons/logo_uc.svg"
+              alt=""
+              width={172}
+              height={99}
+              className="uc-banner-logo-vector"
+            />
+          </div>
 
-      <div className="page-navbar-fixed">
-        <div className="page-navbar-inner">
-          <Link href="/" className="page-navbar-home-link">
-            Laboratorios Vivos de Aprendizaje
-          </Link>
+          <div className="uc-banner-inner">
+            <div className="uc-banner-main">
+              <p className="uc-banner-title">
+                Pontificia Universidad Catolica de Chile
+              </p>
+              <p className="uc-banner-subtitle">
+                Laboratorios Vivos de Aprendizaje
+              </p>
+            </div>
+          </div>
+        </header>
 
-          <nav aria-label="Navegacion principal" className="page-navbar-links">
-            {PAGE_NAV_ITEMS.map((item) => {
-              const active = isNavItemActive(currentPath, item.href);
+        <div className="page-navbar-fixed">
+          <div className="page-navbar-inner">
+            <div className="page-navbar-main">
+              <Link href="/" className="page-navbar-home-link">
+                Laboratorios Vivos de Aprendizaje
+              </Link>
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`page-navbar-link ${active ? "is-active" : ""}`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
+              <nav
+                aria-label="Navegacion principal"
+                className="page-navbar-links"
+              >
+                {PAGE_NAV_ITEMS.map((item) => {
+                  const active = isNavItemActive(currentPath, item.href);
+
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`page-navbar-link ${active ? "is-active" : ""}`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
 
