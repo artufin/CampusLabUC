@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const nunitoSans = Nunito_Sans({
+  variable: "--font-nunito-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
   title: "LabVivo UC",
-  description: "Landing page de LabVivo UC con navegación, bloque de texto y carrusel placeholder.",
+  description:
+    "Plataforma de Laboratorios Vivos de Aprendizaje UC con datos abiertos, oportunidades y repositorio de experiencias.",
 };
 
 export default function RootLayout({
@@ -23,13 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html
-        lang="es"
-        className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      >
-      <body className="min-h-full flex flex-col bg-[radial-gradient(circle_at_top,_#eff6ff_0%,_#f8fafc_40%,_#eef2ff_100%)] text-slate-950">
-        {children}
-      </body>
+    <html
+      lang="es"
+      className={`${nunitoSans.variable} ${archivo.variable} h-full antialiased`}
+    >
+      <body className="min-h-full labvivo-body">{children}</body>
     </html>
   );
 }
