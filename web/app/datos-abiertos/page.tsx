@@ -20,15 +20,6 @@ export default async function DatosAbiertosPage() {
           subtitle="Categorias de desafios cargadas de forma dinamica para reutilizar el mismo origen de datos en varias vistas."
         />
 
-        <section className="info-cards">
-          {openDataEntries.map((entry) => (
-            <article key={entry.id} className="info-card">
-              <h3>{entry.title}</h3>
-              <p>{entry.body}</p>
-            </article>
-          ))}
-        </section>
-
         <article className="map-placeholder-card">
           <h2 className="section-title">Mapa interactivo</h2>
           <p className="section-subtitle">

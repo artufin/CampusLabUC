@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { CircleHighlights } from "@/components/CircleHighlights";
 import { EmptyState } from "@/components/EmptyState";
 import { HomeHero } from "@/components/HomeHero";
 import { LatestExperiencesCarousel } from "@/components/LatestExperiencesCarousel";
@@ -24,7 +23,6 @@ export default async function Home() {
       <HomeHero />
 
       <div className="page-stack">
-        <CircleHighlights />
 
         <section className="content-split">
           <article className="copy-block">

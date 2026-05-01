@@ -1,4 +1,3 @@
-import { ChallengeCircleMap } from "@/components/ChallengeCircleMap";
 import { OpportunityGraphic } from "@/components/OpportunityGraphic";
 import { OpportunityList } from "@/components/OpportunityList";
 import { SiteShell } from "@/components/SiteShell";
@@ -28,12 +27,6 @@ export default async function OportunidadesPage() {
 
           <OpportunityGraphic />
         </section>
-
-        <ChallengeCircleMap
-          categories={categories}
-          title="Desafios"
-          subtitle="Mismo mapa de categorias que Datos Abiertos, reutilizado desde la misma fuente de datos."
-        />
 
         <OpportunityList opportunities={opportunities} />
       </div>
