@@ -93,7 +93,6 @@ export default async function OportunidadesPage({
               sostenibles en los campus.
             </p>
           </article>
-
           <OpportunityGraphic />
         </section>
 
