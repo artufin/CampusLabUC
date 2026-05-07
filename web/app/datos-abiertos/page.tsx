@@ -1,33 +1,39 @@
 import Link from "next/link";
-import { ChallengeCircleMap } from "@/components/ChallengeCircleMap";
 import { SiteShell } from "@/components/SiteShell";
-import { getChallengeCategories, getOpenDataEntries } from "@/lib/labvivo-data";
+import { getOpenDataDatasets } from "@/lib/labvivo-data";
 
 export default async function DatosAbiertosPage() {
-  const [categories, openDataEntries] = await Promise.all([
-    getChallengeCategories(),
-    getOpenDataEntries(),
-  ]);
+  const datasets = await getOpenDataDatasets();
 
   return (
     <SiteShell currentPath="/datos-abiertos">
       <div className="page-stack">
         <h1 className="page-title">Datos abiertos</h1>
 
-        <ChallengeCircleMap
-          categories={categories}
-          title="Oportunidades"
-          subtitle="Categorias de desafios cargadas de forma dinamica para reutilizar el mismo origen de datos en varias vistas."
-        />
+        <article className="map-placeholder-card">
+          <h2 className="section-title">Catálogo de datasets</h2>
+          <p className="section-subtitle">
+            Cada dataset apunta a una ficha de detalle preparada para albergar
+            trazabilidad, descargas y visualizaciones especificas.
+          </p>
 
-        <section className="info-cards">
-          {openDataEntries.map((entry) => (
-            <article key={entry.id} className="info-card">
-              <h3>{entry.title}</h3>
-              <p>{entry.body}</p>
-            </article>
-          ))}
-        </section>
+          <div className="dataset-catalog">
+            {datasets.map((dataset) => (
+              <Link
+                key={dataset.id}
+                className="dataset-card"
+                href={`/datos-abiertos/${dataset.id}`}
+              >
+                <h3>{dataset.title}</h3>
+                <p>{dataset.summary}</p>
+                <p className="dataset-card-meta">
+                  {dataset.source.label} · {dataset.source.unit}
+                </p>
+                <span className="dataset-card-link">Ver dataset</span>
+              </Link>
+            ))}
+          </div>
+        </article>
 
         <article className="map-placeholder-card">
           <h2 className="section-title">Mapa interactivo</h2>
@@ -45,16 +51,6 @@ export default async function DatosAbiertosPage() {
             </div>
           </div>
 
-          <p style={{ marginTop: 14 }}>
-            Si quieres revisar una estructura de dataset, visita
-            <Link
-              href="/datos-abiertos/dataset"
-              style={{ textDecoration: "underline", marginLeft: 6 }}
-            >
-              /datos-abiertos/dataset
-            </Link>
-            .
-          </p>
         </article>
       </div>
     </SiteShell>

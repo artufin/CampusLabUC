@@ -54,6 +54,62 @@ export interface OpenDataEntry {
   body: string;
 }
 
+export type OpenDataSourceKind =
+  | "electric"
+  | "seismic"
+  | "hydraulic"
+  | "environmental"
+  | "mobility"
+  | "academic";
+
+export type OpenDataStreamMode = "continuous" | "event" | "polling";
+
+export type OpenDataQuality = "good" | "estimated" | "warning";
+
+export interface OpenDataMeasurement {
+  timestamp: string;
+  value: number;
+  quality: OpenDataQuality;
+}
+
+export interface OpenDataMetric {
+  label: string;
+  value: string;
+  detail?: string;
+}
+
+export interface OpenDataSource {
+  id: string;
+  kind: OpenDataSourceKind;
+  label: string;
+  location: string;
+  magnitude: string;
+  unit: string;
+  expectedFrequency: string;
+  instrument: string;
+}
+
+export interface OpenDataStream {
+  mode: OpenDataStreamMode;
+  status: "active" | "paused" | "degraded";
+  cadence: string;
+  timezone: string;
+  lastUpdate: string;
+}
+
+export interface OpenDataDataset {
+  id: string;
+  title: string;
+  summary: string;
+  description: string;
+  tags: string[];
+  source: OpenDataSource;
+  stream: OpenDataStream;
+  metrics: OpenDataMetric[];
+  measurements: OpenDataMeasurement[];
+  downloads: string[];
+}
+
 export interface Opportunity {
   id: string;
   title: string;
