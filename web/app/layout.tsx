@@ -15,9 +15,9 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "LabVivo UC",
+  title: "CampusLab UC",
   description:
-    "Plataforma de Laboratorios Vivos de Aprendizaje UC con datos abiertos, oportunidades y repositorio de experiencias.",
+    "Plataforma de Campus Lab UC con datos abiertos, oportunidades y repositorio de experiencias.",
 };
 
 export default function RootLayout({

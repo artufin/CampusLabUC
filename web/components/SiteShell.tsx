@@ -37,7 +37,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 Pontificia Universidad Catolica de Chile
               </p>
               <p className="uc-banner-subtitle">
-                Laboratorios Vivos de Aprendizaje
+                Campus Lab UC
               </p>
             </div>
           </div>
@@ -47,7 +47,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
           <div className="page-navbar-inner">
             <div className="page-navbar-main">
               <Link href="/" className="page-navbar-home-link">
-                Laboratorios Vivos de Aprendizaje
+                Campus Lab UC
               </Link>
 
               <nav

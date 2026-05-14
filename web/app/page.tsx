@@ -28,7 +28,7 @@ export default async function Home() {
           <article className="copy-block">
             <h2>Sobre la iniciativa</h2>
             <p>
-              Los Laboratorios Vivos de Aprendizaje son una innovacion educativa
+              Campus Lab UC es una innovacion educativa
               que utiliza los campus universitarios como escenarios de
               aprendizaje, experimentacion y co-creacion. Este modelo promueve
               la colaboracion activa entre academia, gestion universitaria y
