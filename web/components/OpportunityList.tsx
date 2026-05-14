@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { Opportunity } from "@/lib/types";
 
 interface OpportunityOption {
@@ -24,6 +25,7 @@ interface OpportunityListProps {
   };
   subtitle?: string;
   title?: string;
+  graphic?: ReactNode;
 }
 
 const OPPORTUNITY_ICON_SRC: Record<Opportunity["icon"], string> = {
@@ -68,83 +70,95 @@ export function OpportunityList({
   pagination,
   subtitle,
   title = "Oportunidades disponibles",
+  graphic,
 }: OpportunityListProps) {
   const hasFilters = Boolean(filters.category || filters.label || filters.search);
 
-  return (
-    <section className="opportunity-list">
-      <div className="opportunity-toolbar">
-        <div className="opportunity-toolbar-top">
-          <div>
-            <h2 className="section-title">{title}</h2>
-            {subtitle ? <p className="section-subtitle">{subtitle}</p> : null}
-          </div>
-
-          <p className="opportunity-summary">
-            Mostrando {opportunities.length} de {pagination.total} resultados
-            {hasFilters ? " filtrados" : ""}.
-          </p>
+  const toolbar = (
+    <div className="opportunity-toolbar">
+      <div className="opportunity-toolbar-top">
+        <div>
+          <h2 className="section-title">{title}</h2>
+          {subtitle ? <p className="section-subtitle">{subtitle}</p> : null}
         </div>
 
-        <form className="opportunity-filters" method="get" action="/oportunidades">
-          <input type="hidden" name="page" value="1" />
-
-          <label className="opportunity-field opportunity-field-search">
-            <span>Buscador de texto</span>
-            <input
-              className="opportunity-input"
-              name="q"
-              type="search"
-              placeholder="Buscar por titulo, descripcion o tutor"
-              defaultValue={filters.search}
-            />
-          </label>
-
-          <label className="opportunity-field">
-            <span>Categoria</span>
-            <select
-              className="opportunity-select"
-              name="category"
-              defaultValue={filters.category}
-            >
-              <option value="">Todas</option>
-              {categoryOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label className="opportunity-field">
-            <span>Label</span>
-            <select
-              className="opportunity-select"
-              name="label"
-              defaultValue={filters.label}
-            >
-              <option value="">Todos</option>
-              {labelOptions.map((label) => (
-                <option key={label} value={label}>
-                  {label}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <div className="opportunity-search-actions">
-            <button className="opportunity-button" type="submit">
-              Aplicar filtros
-            </button>
-
-            {hasFilters ? (
-              <Link className="opportunity-reset" href="/oportunidades">
-                Limpiar
-              </Link>
-            ) : null}
-          </div>
-        </form>
+        <p className="opportunity-summary">
+          Mostrando {opportunities.length} de {pagination.total} resultados
+          {hasFilters ? " filtrados" : ""}.
+        </p>
       </div>
+
+      <form className="opportunity-filters" method="get" action="/oportunidades">
+        <input type="hidden" name="page" value="1" />
+
+        <label className="opportunity-field opportunity-field-search">
+          <span>Buscador de texto</span>
+          <input
+            className="opportunity-input"
+            name="q"
+            type="search"
+            placeholder="Buscar por titulo, descripcion o tutor"
+            defaultValue={filters.search}
+          />
+        </label>
+
+        <label className="opportunity-field">
+          <span>Categoria</span>
+          <select
+            className="opportunity-select"
+            name="category"
+            defaultValue={filters.category}
+          >
+            <option value="">Todas</option>
+            {categoryOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className="opportunity-field">
+          <span>Label</span>
+          <select
+            className="opportunity-select"
+            name="label"
+            defaultValue={filters.label}
+          >
+            <option value="">Todos</option>
+            {labelOptions.map((label) => (
+              <option key={label} value={label}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <div className="opportunity-search-actions">
+          <button className="opportunity-button" type="submit">
+            Aplicar filtros
+          </button>
+
+          {hasFilters ? (
+            <Link className="opportunity-reset" href="/oportunidades">
+              Limpiar
+            </Link>
+          ) : null}
+        </div>
+      </form>
+    </div>
+  );
+
+  return (
+    <section className="opportunity-list">
+      {graphic ? (
+        <div className="opportunity-intro">
+          {toolbar}
+          {graphic}
+        </div>
+      ) : (
+        toolbar
+      )}
 
       <div className="opportunity-results">
         {opportunities.length > 0 ? (
@@ -162,6 +176,15 @@ export function OpportunityList({
                   <span className="opportunity-chip">{item.typeLabel}</span>
                   <span className="opportunity-chip">{item.supervisor}</span>
                 </div>
+
+                <a
+                  href="https://gestionipre.investigacion.ing.uc.cl/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="opportunity-portal-link"
+                >
+                  Ir a portal para postular →
+                </a>
               </div>
 
               <div className="opportunity-result-side">

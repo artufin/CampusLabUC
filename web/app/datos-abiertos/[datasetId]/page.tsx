@@ -29,6 +29,9 @@ export default async function DatasetDetailPage({ params }: DatasetDetailPagePro
   return (
     <SiteShell currentPath="/datos-abiertos">
       <div className="page-stack">
+        <Link href="/datos-abiertos" className="dataset-back-link">
+          ← Volver a datos abiertos
+        </Link>
         {dataset ? (
           <>
             <div className="dataset-detail-hero">
