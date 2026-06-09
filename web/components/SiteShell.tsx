@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { PAGE_NAV_ITEMS } from "@/components/navigation";
@@ -9,71 +8,78 @@ interface SiteShellProps {
 }
 
 function isNavItemActive(currentPath: string, href: string): boolean {
-  if (href === "/") {
-    return currentPath === "/";
-  }
-
+  if (href === "/") return currentPath === "/";
   return currentPath === href || currentPath.startsWith(`${href}/`);
 }
 
 export function SiteShell({ children, currentPath }: SiteShellProps) {
   return (
-    <div className="labvivo-shell">
-      <div className="top-chrome-fixed">
-        <header className="uc-banner-fixed">
-          <div className="uc-banner-logo-block" aria-hidden="true">
-            <Image
-              src="/assets/icons/logo_uc.svg"
-              alt=""
-              width={172}
-              height={99}
-              className="uc-banner-logo-vector"
-            />
-          </div>
-
-          <div className="uc-banner-inner">
-            <div className="uc-banner-main">
-              <p className="uc-banner-title">
-                Pontificia Universidad Catolica de Chile
-              </p>
-              <p className="uc-banner-subtitle">
-                Campus Lab UC
-              </p>
-            </div>
-          </div>
-        </header>
-
-        <div className="page-navbar-fixed">
-          <div className="page-navbar-inner">
-            <div className="page-navbar-main">
-              <Link href="/" className="page-navbar-home-link">
-                Campus Lab UC
-              </Link>
-
-              <nav
-                aria-label="Navegacion principal"
-                className="page-navbar-links"
-              >
-                {PAGE_NAV_ITEMS.map((item) => {
-                  const active = isNavItemActive(currentPath, item.href);
-
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={`page-navbar-link ${active ? "is-active" : ""}`}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                })}
-              </nav>
-            </div>
-          </div>
-        </div>
+    <div className="site">
+      <div className="topbar">
+        <span className="topbar__u">PONTIFICIA UNIVERSIDAD CATÓLICA DE CHILE</span>
+        <span className="topbar__d">·</span>
+        <span>CampusLab UC</span>
       </div>
 
-      <main className="page-content">{children}</main>
+      <nav className="nav">
+        <div className="wrap">
+          <Link href="/" className="nav__brand">
+            <div className="nav__logo">UC</div>
+            <span className="nav__name">CampusLab UC</span>
+          </Link>
+          <ul className="nav__links">
+            {PAGE_NAV_ITEMS.map((item) => {
+              const active = isNavItemActive(currentPath, item.href);
+              return (
+                <li key={item.href}>
+                  <Link href={item.href} className={active ? "active" : undefined}>
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </nav>
+
+      <main>{children}</main>
+
+      <footer className="footer">
+        <div className="wrap">
+          <div className="footer__grid">
+            <div>
+              <div className="footer__brand-name">CampusLab UC</div>
+              <p className="footer__brand-desc">
+                Red interdisciplinaria que impulsa experiencias de aprendizaje y colaboración desde
+                los campus UC. Conectamos academia, estudiantes, comunidades y actores externos para
+                diseñar soluciones sostenibles.
+              </p>
+            </div>
+            <div>
+              <div className="footer__col-title">Páginas</div>
+              <ul className="footer__links">
+                {PAGE_NAV_ITEMS.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href}>{item.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <div className="footer__col-title">Contacto</div>
+              <ul className="footer__links">
+                <li><a href="mailto:campuslab.ing@uc.cl">campuslab.ing@uc.cl</a></li>
+                <li><span>Escuela de Diseño UC</span></li>
+                <li><span>Avda. Vicuña Mackenna 4860</span></li>
+              </ul>
+            </div>
+          </div>
+          <div className="footer__bottom">
+            <span className="footer__copy">© 2025 Pontificia Universidad Católica de Chile</span>
+            <span className="footer__copy">CampusLab UC</span>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

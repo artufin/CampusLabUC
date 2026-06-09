@@ -12,24 +12,49 @@ export default async function NosotrosPage() {
 
   return (
     <SiteShell currentPath="/nosotros">
-      <div className="page-stack">
-        <h1 className="page-title">Nosotros</h1>
-
-        <section>
-          <h2 className="section-title">Quienes somos</h2>
-          <p className="page-intro">
-            Somos una red interdisciplinaria que impulsa experiencias de
-            aprendizaje y colaboracion desde los campus UC. Conectamos academia,
-            estudiantes, comunidades y actores externos para disenar soluciones
-            sostenibles con evidencia y accion concreta.
+      <section className="phero">
+        <div className="wrap">
+          <h1 className="phero__h1">Nosotros</h1>
+          <p className="phero__desc">
+            Somos una red interdisciplinaria que impulsa experiencias de aprendizaje y colaboración
+            desde los campus UC. Conectamos academia, estudiantes, comunidades y actores externos
+            para diseñar soluciones sostenibles con evidencia y acción concreta.
           </p>
-        </section>
+        </div>
+      </section>
 
-        <section>
-          <h2 className="section-title">Equipo Ejecutivo</h2>
+      {/* Quiénes somos */}
+      <section className="s s--white">
+        <div className="wrap">
+          <div className="g2">
+            <div>
+              <p className="overline" style={{ color: "var(--or)", marginBottom: 14 }}>
+                Nuestra misión
+              </p>
+              <h2 className="sh sh--tD" style={{ marginBottom: 24 }}>¿Quiénes somos?</h2>
+              <p className="body">
+                CampusLab UC es una iniciativa que transforma el campus universitario en un espacio
+                de experimentación real. Integramos docencia, investigación y extensión para que los
+                desafíos del entorno universitario se conviertan en oportunidades concretas de
+                aprendizaje e innovación sostenible.
+              </p>
+            </div>
+            <div className="img-ph img-green" style={{ height: 280 }}>
+              <span>Equipo Campus Lab</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Equipo ejecutivo */}
+      <section className="s s--cream">
+        <div className="wrap">
+          <h2 className="sh sh--tD" style={{ marginBottom: 12 }}>Equipo Ejecutivo</h2>
+          <p className="body" style={{ marginBottom: 48, maxWidth: 600 }}>
+            Las personas que lideran y desarrollan la plataforma y sus proyectos.
+          </p>
           {executivePeople.length > 0 ? (
-            <div className="people-grid">
+            <div className="g3">
               {executivePeople.map((person) => (
                 <PersonCard key={person.id} person={person} />
               ))}
@@ -37,16 +62,22 @@ export default async function NosotrosPage() {
           ) : (
             <EmptyState
               title="No hay equipo ejecutivo disponible"
-              description="Los perfiles se cargaran de forma automatica cuando el endpoint de personas quede habilitado."
+              description="Los perfiles se cargarán de forma automática cuando el endpoint de personas quede habilitado."
             />
           )}
-        </section>
+        </div>
+      </section>
 
-        <section style={{ marginTop: 52 }}>
-          <h2 className="section-title">Miembros asociados</h2>
-
+      {/* Miembros asociados */}
+      <section className="s s--white s--pb100">
+        <div className="wrap">
+          <h2 className="sh sh--tD" style={{ marginBottom: 12 }}>Miembros asociados</h2>
+          <p className="body" style={{ marginBottom: 36, maxWidth: 560 }}>
+            Comunidad amplia de estudiantes, profesores y colaboradores que participan en los
+            proyectos del Campus Lab.
+          </p>
           {associatedMembers.length > 0 ? (
-            <div className="member-chip-grid">
+            <div className="members">
               {associatedMembers.map((name) => (
                 <MemberChip key={name} name={name} />
               ))}
@@ -54,11 +85,11 @@ export default async function NosotrosPage() {
           ) : (
             <EmptyState
               title="No hay miembros asociados"
-              description="Esta cuadricula se llenara dinamicamente usando los datos de la API compartida de personas."
+              description="Esta sección se llenará dinámicamente usando los datos de la API de personas."
             />
           )}
-        </section>
-      </div>
+        </div>
+      </section>
     </SiteShell>
   );
 }

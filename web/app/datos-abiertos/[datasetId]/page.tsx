@@ -28,77 +28,88 @@ export default async function DatasetDetailPage({ params }: DatasetDetailPagePro
 
   return (
     <SiteShell currentPath="/datos-abiertos">
-      <div className="page-stack">
-        <Link href="/datos-abiertos" className="dataset-back-link">
-          ← Volver a datos abiertos
-        </Link>
-        {dataset ? (
-          <>
-            <div className="dataset-detail-hero">
-              <div>
-                <p className="dataset-detail-kicker">{dataset.source.label}</p>
-                <h1 className="page-title">{dataset.title}</h1>
-                <p className="page-intro">{dataset.description}</p>
+      <section className="phero">
+        <div className="wrap">
+          {dataset ? (
+            <>
+              <p className="overline" style={{ color: "var(--tL)", marginBottom: 14 }}>
+                {dataset.source.label}
+              </p>
+              <h1 className="phero__h1">{dataset.title}</h1>
+              <p className="phero__desc">{dataset.description}</p>
+            </>
+          ) : (
+            <h1 className="phero__h1">Dataset no encontrado</h1>
+          )}
+        </div>
+      </section>
+
+      <section className="s s--white">
+        <div className="wrap">
+          <Link href="/datos-abiertos" className="dataset-back-link">
+            ← Volver a datos abiertos
+          </Link>
+
+          {dataset ? (
+            <>
+              <OpenDataSeriesChart dataset={dataset} />
+
+              <div className="dataset-metadata-grid">
+                <div className="info-card">
+                  <h3>Fuente</h3>
+                  <p>{dataset.source.magnitude}</p>
+                  <p>{dataset.source.expectedFrequency}</p>
+                  <p>{dataset.source.instrument}</p>
+                </div>
+                <div className="info-card">
+                  <h3>Stream</h3>
+                  <p>{dataset.stream.mode}</p>
+                  <p>{dataset.stream.status}</p>
+                  <p>{dataset.stream.cadence}</p>
+                  <p>{dataset.stream.timezone}</p>
+                </div>
+                <div className="info-card">
+                  <h3>Mediciones</h3>
+                  <p>Última actualización: {formatTimestamp(dataset.stream.lastUpdate)}</p>
+                  <p>Serie de {dataset.measurements.length} puntos numéricos</p>
+                  <p>
+                    Valores entre{" "}
+                    {Math.min(...dataset.measurements.map((m) => m.value))} y{" "}
+                    {Math.max(...dataset.measurements.map((m) => m.value))}
+                  </p>
+                </div>
+              </div>
+
+              <div className="info-card" style={{ marginTop: 20 }}>
+                <h3>Descargas</h3>
+                <ul>
+                  {dataset.downloads.map((download) => (
+                    <li key={download}>{download}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ) : (
+            <div className="dataset-not-found-card">
+              <p className="body">
+                No existe un dataset con ese identificador. Revisa el catálogo y elige una de las
+                fichas disponibles.
+              </p>
+              <div className="ds-grid">
+                {datasets.map((item) => (
+                  <Link key={item.id} href={`/datos-abiertos/${item.id}`} className="ds-card">
+                    <h3 className="ds-card__title">{item.title}</h3>
+                    <p className="ds-card__desc">{item.summary}</p>
+                    <span className="btn btn--teal btn--sm" style={{ alignSelf: "flex-start" }}>
+                      Abrir dataset
+                    </span>
+                  </Link>
+                ))}
               </div>
             </div>
-
-            <OpenDataSeriesChart dataset={dataset} />
-
-            <section className="dataset-metadata-grid">
-              <article className="info-card">
-                <h3>Fuente</h3>
-                <p>{dataset.source.magnitude}</p>
-                <p>{dataset.source.expectedFrequency}</p>
-                <p>{dataset.source.instrument}</p>
-              </article>
-
-              <article className="info-card">
-                <h3>Stream</h3>
-                <p>{dataset.stream.mode}</p>
-                <p>{dataset.stream.status}</p>
-                <p>{dataset.stream.cadence}</p>
-                <p>{dataset.stream.timezone}</p>
-              </article>
-
-              <article className="info-card">
-                <h3>Mediciones</h3>
-                <p>Ultima actualizacion: {formatTimestamp(dataset.stream.lastUpdate)}</p>
-                <p>Serie de {dataset.measurements.length} puntos numericos</p>
-                <p>
-                  Valores entre {Math.min(...dataset.measurements.map((item) => item.value))} y {Math.max(...dataset.measurements.map((item) => item.value))}
-                </p>
-              </article>
-            </section>
-
-            
-            <article className="info-card">
-            <h3>Descargas</h3>
-            <ul>
-                {dataset.downloads.map((download) => (
-                <li key={download}>{download}</li>
-                ))}
-            </ul>
-            </article>
-          </>
-        ) : (
-          <article className="info-card dataset-not-found-card">
-            <h1 className="page-title">Dataset no encontrado</h1>
-            <p className="page-intro">
-              No existe un dataset con ese identificador. Revisa el catalogo y elige una de las fichas disponibles.
-            </p>
-
-            <div className="dataset-catalog compact">
-              {datasets.map((item) => (
-                <Link key={item.id} className="dataset-card" href={`/datos-abiertos/${item.id}`}>
-                  <h3>{item.title}</h3>
-                  <p>{item.summary}</p>
-                  <span className="dataset-card-link">Abrir dataset</span>
-                </Link>
-              ))}
-            </div>
-          </article>
-        )}
-      </div>
+          )}
+        </div>
+      </section>
     </SiteShell>
   );
 }

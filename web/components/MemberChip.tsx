@@ -3,5 +3,5 @@ interface MemberChipProps {
 }
 
 export function MemberChip({ name }: MemberChipProps) {
-  return <div className="member-chip">{name}</div>;
+  return <span className="m-pill">{name}</span>;
 }
