@@ -7,27 +7,29 @@ interface SponsorBandProps {
 
 export function SponsorBand({ sponsors }: SponsorBandProps) {
   return (
-    <section className="sponsor-band">
-      <h2 className="section-title">Sponsors</h2>
-      <div className="sponsor-grid">
-        {sponsors.map((sponsor) => (
-          <div
-            key={sponsor.id}
-            className={`sponsor-item ${sponsor.logoUrl ? "has-logo" : ""}`}
-          >
-            {sponsor.logoUrl ? (
+    <section className="s s--pa s--slim">
+      <div className="wrap">
+        <p className="overline" style={{ color: "var(--tm)", marginBottom: 28 }}>
+          Instituciones colaboradoras
+        </p>
+        <div className="sponsors">
+          {sponsors.map((sponsor) =>
+            sponsor.logoUrl ? (
               <Image
+                key={sponsor.id}
                 src={sponsor.logoUrl}
                 alt={sponsor.name}
-                width={280}
-                height={100}
+                width={160}
+                height={60}
                 className="sponsor-logo"
               />
             ) : (
-              <span>{sponsor.name}</span>
-            )}
-          </div>
-        ))}
+              <span key={sponsor.id} className="sponsor-n">
+                {sponsor.name}
+              </span>
+            )
+          )}
+        </div>
       </div>
     </section>
   );

@@ -1,93 +1,36 @@
-import Image from "next/image";
 import type { Person } from "@/lib/types";
 
-interface PersonCardProps {
-  person: Person;
+const BG_COLORS = [
+  "#2d5a6b", "#3d6b5a", "#4a6b4a", "#5a4a6b", "#6b5a3d",
+  "#2d6b5e", "#3d5a6b", "#4a6b3d", "#6b4a3d", "#3d4a6b",
+];
+
+function getCardBg(name: string): string {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = (hash * 31 + name.charCodeAt(i)) >>> 0;
+  return BG_COLORS[hash % BG_COLORS.length];
 }
 
-const SOCIAL_ICONS = {
-  email: "/assets/icons/mail.svg",
-  instagram: "/assets/icons/instagram.svg",
-  linkedin: "/assets/icons/linkedin.svg",
-} as const;
+function getInitials(name: string): string {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+}
 
-export function PersonCard({ person }: PersonCardProps) {
-  const hasPhoto = Boolean(person.photoUrl);
-
+export function PersonCard({ person }: { person: Person }) {
   return (
-    <article className="person-card group">
-      <div className="person-photo-wrap">
-        {hasPhoto ? (
-          <Image
-            src={person.photoUrl as string}
-            alt={`Foto de ${person.name}`}
-            fill
-            className="person-photo"
-            sizes="(max-width: 768px) 100vw, 320px"
-          />
-        ) : (
-          <div className="person-photo-placeholder" aria-hidden="true">
-            <span>{person.name.slice(0, 2).toUpperCase()}</span>
-          </div>
-        )}
+    <div className="ac-card">
+      <div className="ac-card__top" style={{ background: getCardBg(person.name) }}>
+        <div className="ac-card__ini">{getInitials(person.name)}</div>
       </div>
-
-      <div className="person-body">
-        <h3 className="person-name">{person.name}</h3>
-        <p className="person-role">{person.role}</p>
-        <p className="person-bio">{person.bio}</p>
+      <div className="ac-card__body">
+        <div className="ac-card__name">{person.name}</div>
+        <div className="ac-card__role">{person.role}</div>
       </div>
-
-      <div className="person-socials" aria-label="Redes de contacto">
-        {person.social.email ? (
-          <a
-            href={`mailto:${person.social.email}`}
-            className="person-social-link"
-            aria-label="Correo"
-          >
-            <Image
-              src={SOCIAL_ICONS.email}
-              alt="Correo"
-              width={18}
-              height={14}
-            />
-          </a>
-        ) : null}
-
-        {person.social.instagram ? (
-          <a
-            href={person.social.instagram}
-            className="person-social-link"
-            aria-label="Instagram"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              src={SOCIAL_ICONS.instagram}
-              alt="Instagram"
-              width={17}
-              height={17}
-            />
-          </a>
-        ) : null}
-
-        {person.social.linkedin ? (
-          <a
-            href={person.social.linkedin}
-            className="person-social-link"
-            aria-label="LinkedIn"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              src={SOCIAL_ICONS.linkedin}
-              alt="LinkedIn"
-              width={17}
-              height={17}
-            />
-          </a>
-        ) : null}
-      </div>
-    </article>
+    </div>
   );
 }

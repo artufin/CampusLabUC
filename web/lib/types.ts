@@ -118,8 +118,6 @@ export interface Opportunity {
   categoryName: string;
   label: string;
   supervisor: string;
-  typeLabel: string;
-  icon: "forest" | "tree" | "plant" | "germination";
 }
 
 export interface PaginatedProjects {

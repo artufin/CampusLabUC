@@ -1,4 +1,3 @@
-import { OpportunityGraphic } from "@/components/OpportunityGraphic";
 import { OpportunityList } from "@/components/OpportunityList";
 import { SiteShell } from "@/components/SiteShell";
 import { getOpportunities } from "@/lib/labvivo-data";
@@ -17,7 +16,6 @@ function readSearchParam(value: SearchParamValue) {
 
 function parsePage(value: string) {
   const page = Number.parseInt(value, 10);
-
   return Number.isFinite(page) && page > 0 ? page : 1;
 }
 
@@ -34,70 +32,52 @@ export default async function OportunidadesPage({
   };
 
   const categoryOptions = Array.from(
-    new Map(
-      opportunities.map((item) => [item.categoryId, item.categoryName]),
-    ),
+    new Map(opportunities.map((item) => [item.categoryId, item.categoryName])),
     ([value, label]) => ({ value, label }),
-  ).sort((left, right) => left.label.localeCompare(right.label));
+  ).sort((a, b) => a.label.localeCompare(b.label));
 
   const labelOptions = Array.from(
     new Set(opportunities.map((item) => item.label)),
-  ).sort((left, right) => left.localeCompare(right));
+  ).sort((a, b) => a.localeCompare(b));
 
-  const filteredOpportunities = opportunities.filter((item) => {
-    const searchableText = [
-      item.title,
-      item.description,
-      item.categoryName,
-      item.label,
-      item.supervisor,
-      item.typeLabel,
-    ]
+  const filtered = opportunities.filter((item) => {
+    const text = [item.title, item.description, item.categoryName, item.label, item.supervisor]
       .join(" ")
       .toLowerCase();
-
-    const normalizedSearch = filters.search.toLowerCase();
-
     return (
       (!filters.category || item.categoryId === filters.category) &&
-      (!filters.label || item.label === filters.label) &&
-      (!normalizedSearch || searchableText.includes(normalizedSearch))
+      (!filters.label    || item.label === filters.label) &&
+      (!filters.search   || text.includes(filters.search.toLowerCase()))
     );
   });
 
   const pageSize = 3;
-  const total = filteredOpportunities.length;
+  const total = filtered.length;
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
-  const page = Math.min(
-    parsePage(readSearchParam(resolvedSearchParams.page)),
-    totalPages,
-  );
-  const startIndex = (page - 1) * pageSize;
-  const paginatedOpportunities = filteredOpportunities.slice(
-    startIndex,
-    startIndex + pageSize,
-  );
+  const page = Math.min(parsePage(readSearchParam(resolvedSearchParams.page)), totalPages);
+  const paginated = filtered.slice((page - 1) * pageSize, page * pageSize);
 
   return (
     <SiteShell currentPath="/oportunidades">
-      <div className="page-stack">
-        <h1 className="page-title">Oportunidades de investigacion</h1>
+      <section className="phero">
+        <div className="wrap">
+          <h1 className="phero__h1">Oportunidades de investigación</h1>
+          <p className="phero__desc">
+            Usa el buscador para localizar una oportunidad y combina los filtros por categoría y
+            nivel de involucramiento. Cada desafío tiene un encargado académico y un portal de
+            postulación.
+          </p>
+        </div>
+      </section>
 
-        <OpportunityList
-          graphic={<OpportunityGraphic compact />}
-          opportunities={paginatedOpportunities}
-          categoryOptions={categoryOptions}
-          labelOptions={labelOptions}
-          filters={filters}
-          pagination={{
-            page,
-            total,
-            totalPages,
-            pageSize,
-          }}
-          subtitle="Usa el buscador para localizar una oportunidad y combina los filtros por categoria y label."
-        />
-      </div>
+      <OpportunityList
+        opportunities={paginated}
+        categoryOptions={categoryOptions}
+        labelOptions={labelOptions}
+        filters={filters}
+        pagination={{ page, total, totalPages, pageSize }}
+        subtitle="Usa el buscador para localizar una oportunidad y combina los filtros."
+      />
     </SiteShell>
   );
 }
