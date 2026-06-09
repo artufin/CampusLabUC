@@ -231,18 +231,6 @@ const FALLBACK_SPONSORS: Sponsor[] = [
 
 const FALLBACK_PROJECTS: Project[] = [
   {
-    id: "project-1",
-    title: "Chom - Anais Weil",
-    description:
-      "Experimentacion en bio-materiales para cultivos de bajo impacto con participacion estudiantil.",
-    contactName: "Anais Weil",
-    contactEmail: "cha.lab.biomaterial@gmail.com",
-    tags: ["Biomateriales", "Campus vivo"],
-    challengeType: "Accion climatica",
-    engagementLevel: "Practicante",
-    imageUrl: "/assets/photos/chom_anais_weil.png",
-  },
-  {
     id: "project-2",
     title: "Riego inteligente en patios de innovacion",
     description:
@@ -625,49 +613,41 @@ const FALLBACK_OPPORTUNITIES: Opportunity[] = [
     id: "opp-1",
     title: "Flora y Fauna en los Campus",
     description:
-      "Desafio 1: Monitoreo de especies nativas y su relacion con nuevos corredores ecologicos.",
+      "Monitoreo de especies nativas y su relacion con nuevos corredores ecologicos.",
     categoryId: "flora-fauna",
     categoryName: "Flora y Fauna en los campus",
     label: "Investigacion de pregrado",
     supervisor: "Profesor Guia: Marta Olivares",
-    typeLabel: "Investigacion Bosque",
-    icon: "forest",
   },
   {
     id: "opp-2",
     title: "Transporte",
     description:
-      "Desafio 1: Mejora de rutas seguras y estaciones de movilidad activa para estudiantes.",
+      "Mejora de rutas seguras y estaciones de movilidad activa para estudiantes.",
     categoryId: "transporte",
     categoryName: "Transporte",
     label: "Practica profesional",
     supervisor: "Encargado: Nicolas Becerra",
-    typeLabel: "Practica Planta",
-    icon: "plant",
   },
   {
     id: "opp-3",
     title: "Transporte",
     description:
-      "Desafio 2: Analitica de patrones de viaje en horarios punta con visualizaciones abiertas.",
+      "Analitica de patrones de viaje en horarios punta con visualizaciones abiertas.",
     categoryId: "transporte",
     categoryName: "Transporte",
     label: "Tesis de doctorado",
     supervisor: "Profesor Guia: Felipe Jara",
-    typeLabel: "Tesis/Titulo Arbol",
-    icon: "tree",
   },
   {
     id: "opp-4",
     title: "Residuos",
     description:
-      "Desafio 1: Escalamiento de sistemas de compostaje y reduccion de desperdicio organico.",
+      "Escalamiento de sistemas de compostaje y reduccion de desperdicio organico.",
     categoryId: "residuos",
     categoryName: "Residuos",
     label: "Proyecto docente",
     supervisor: "Encargada: Anais Weil",
-    typeLabel: "Cursos Germinacion",
-    icon: "germination",
   },
 ];
 

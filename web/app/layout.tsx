@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
-import { Archivo, Nunito_Sans } from "next/font/google";
+import { Amiri, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const nunitoSans = Nunito_Sans({
-  variable: "--font-nunito-sans",
+const amiri = Amiri({
+  variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
 });
 
-const archivo = Archivo({
-  variable: "--font-archivo",
+const sourceSans3 = Source_Sans_3({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["300", "400", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "CampusLab UC",
   description:
-    "Plataforma de Campus Lab UC con datos abiertos, oportunidades y repositorio de experiencias.",
+    "Plataforma de CampusLab UC con datos abiertos, oportunidades y repositorio de experiencias.",
 };
 
 export default function RootLayout({
@@ -26,11 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${nunitoSans.variable} ${archivo.variable} h-full antialiased`}
-    >
-      <body className="min-h-full labvivo-body">{children}</body>
+    <html lang="es" className={`${amiri.variable} ${sourceSans3.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

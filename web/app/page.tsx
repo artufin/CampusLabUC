@@ -22,105 +22,123 @@ export default async function Home() {
     <SiteShell currentPath="/">
       <HomeHero />
 
-      <div className="page-stack">
-
-        <section className="content-split">
-          <article className="copy-block">
-            <h2>Sobre la iniciativa</h2>
-            <p>
-              Campus Lab UC es una innovacion educativa
-              que utiliza los campus universitarios como escenarios de
-              aprendizaje, experimentacion y co-creacion. Este modelo promueve
-              la colaboracion activa entre academia, gestion universitaria y
-              comunidades para enfrentar desafios relacionados con la
-              sostenibilidad.
-            </p>
-          </article>
-
-          <div className="media-card">
-            <Image
-              src="/assets/photos/sobre_la_iniciativa.png"
-              alt="Sesion de trabajo en laboratorio vivo"
-              fill
-              sizes="(max-width: 1060px) 100vw, 50vw"
-            />
+      {/* Sobre la iniciativa */}
+      <section className="s s--white">
+        <div className="wrap">
+          <div className="g2">
+            <div
+              className="img-ph img-green"
+              style={{ height: 300 }}
+            >
+            </div>
+            <div>
+              <p className="overline" style={{ color: "var(--or)", marginBottom: 14 }}>
+                La iniciativa
+              </p>
+              <h2 className="sh sh--tD" style={{ marginBottom: 24 }}>
+                Sobre la iniciativa
+              </h2>
+              <p className="body" style={{ marginBottom: 28 }}>
+                CampusLab UC es una innovación educativa que utiliza los campus universitarios como
+                escenarios de aprendizaje, experimentación y co-creación. Este modelo promueve la
+                colaboración activa entre academia, gestión universitaria y comunidades para enfrentar
+                desafíos relacionados con la sostenibilidad.
+              </p>
+              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                <span className="tag">Innovación educativa</span>
+                <span className="tag">Sostenibilidad</span>
+                <span className="tag">Co-creación</span>
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="highlight-strip">
-          <div className="placeholder-boxes" aria-hidden="true">
-            <div className="placeholder-box" />
-            <div className="placeholder-box" />
+      {/* Objetivos */}
+      <section className="s s--tL">
+        <div className="wrap">
+          <p className="overline" style={{ color: "var(--t)", marginBottom: 12 }}>
+            ¿Qué buscamos?
+          </p>
+          <h2 className="sh" style={{ marginBottom: 48 }}>Objetivos</h2>
+          <div className="g3">
+            <div className="obj-card">
+              <div className="obj-card__n">01</div>
+              <p className="obj-card__t">
+                Integrar academia y gestión para responder a necesidades territoriales con enfoque
+                sostenible.
+              </p>
+            </div>
+            <div className="obj-card">
+              <div className="obj-card__n">02</div>
+              <p className="obj-card__t">
+                Desarrollar proyectos innovadores y escalables que puedan replicarse en distintos
+                contextos.
+              </p>
+            </div>
+            <div className="obj-card">
+              <div className="obj-card__n">03</div>
+              <p className="obj-card__t">
+                Visibilizar resultados y aprendizajes para fortalecer la colaboración entre actores.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <article>
-            <h2>Objetivos</h2>
-            <p>
-              Esta iniciativa promueve aprendizajes con impacto real en los
-              campus y su entorno.
-            </p>
-            <ol>
-              <li>
-                Integrar academia y gestion para responder a necesidades
-                territoriales con enfoque sostenible.
-              </li>
-              <li>
-                Desarrollar proyectos innovadores y escalables que puedan
-                replicarse en distintos contextos.
-              </li>
-              <li>
-                Visibilizar resultados y aprendizajes para fortalecer la
-                colaboracion entre actores.
-              </li>
-            </ol>
-          </article>
-        </section>
+      {/* Pilares */}
+      <section className="s s--white">
+        <div className="wrap">
+          <div className="g2">
+            <div>
+              <h2 className="sh" style={{ marginBottom: 20 }}>Pilares</h2>
+              <p className="body">
+                Aprendizaje situado, colaboración interdisciplinaria y acción con impacto medible en
+                el entorno universitario.
+              </p>
+            </div>
+            <div className="img-ph img-forest" style={{ height: 240 }} />
+          </div>
+        </div>
+      </section>
 
-        <section className="content-split">
-          <article className="copy-block">
-            <h2>Pilares</h2>
-            <p>
-              Aprendizaje situado, colaboracion interdisciplinaria y accion con
-              impacto medible en el entorno universitario.
-            </p>
-          </article>
+      {/* Propuesta de valor */}
+      <section className="s s--cream">
+        <div className="wrap">
+          <div className="g2">
+            <div className="img-ph img-blue" style={{ height: 240 }} />
+            <div>
+              <h2 className="sh" style={{ marginBottom: 20 }}>Propuesta de valor</h2>
+              <p className="body">
+                Vincular docencia, investigación y extensión en una sola experiencia para que cada
+                desafío del campus se convierta en una oportunidad real de aprendizaje.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="media-card" aria-hidden="true" />
-        </section>
-
-        <section className="content-split">
-          <article className="copy-block">
-            <h2>Propuesta de valor</h2>
-            <p>
-              Vincular docencia, investigacion y extension en una sola
-              experiencia para que cada desafio del campus se convierta en una
-              oportunidad real de aprendizaje.
-            </p>
-          </article>
-
-          <div className="media-card" aria-hidden="true" />
-        </section>
-
-        <section>
-          <h2 className="section-title">Academicos asociados</h2>
-
+      {/* Académicos asociados */}
+      <section className="s s--white">
+        <div className="wrap">
+          <h2 className="sh sh--tD" style={{ marginBottom: 48 }}>Académicos asociados</h2>
           {academicPeople.length > 0 ? (
-            <div className="people-grid">
+            <div className="g3">
               {academicPeople.map((person) => (
                 <PersonCard key={person.id} person={person} />
               ))}
             </div>
           ) : (
             <EmptyState
-              title="No hay academicos cargados"
-              description="Cuando la API de personas este disponible, esta seccion mostrara los perfiles vinculados al grupo academico."
+              title="No hay académicos cargados"
+              description="Cuando la API de personas esté disponible, esta sección mostrará los perfiles del grupo académico."
             />
           )}
-        </section>
+        </div>
+      </section>
 
-        <SponsorBand sponsors={sponsors} />
-        <LatestExperiencesCarousel items={experiences} />
-      </div>
+      <SponsorBand sponsors={sponsors} />
+      <LatestExperiencesCarousel items={experiences} />
     </SiteShell>
   );
 }

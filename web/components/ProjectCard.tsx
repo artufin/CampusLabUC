@@ -1,64 +1,53 @@
 import Image from "next/image";
 import type { Project } from "@/lib/types";
 
-interface ProjectCardProps {
-  project: Project;
-}
-
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="project-card">
-      <div className="project-image-wrap">
-        <Image
-          src={project.imageUrl ?? "/assets/photos/chom_anais_weil.png"}
-          alt={project.title}
-          fill
-          className="project-image"
-          sizes="(max-width: 1024px) 100vw, 50vw"
-        />
+    <div className="repo-entry">
+      <div className="repo-entry__img">
+        <div className="repo-img-tags">
+          {project.tags.map((tag) => (
+            <span key={tag} className="tag">
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
 
-      <div className="project-panel">
-        <h3 className="project-title">{project.title}</h3>
-        <div className="project-meta-block">
-          <p className="project-meta-label">Que?</p>
-          <p>{project.description}</p>
-        </div>
-
-        <div className="project-meta-block">
-          <p className="project-meta-label">Contacto</p>
-          <p>{project.contactName}</p>
-          <a
-            href={`mailto:${project.contactEmail}`}
-            className="project-contact-link"
-          >
-            {project.contactEmail}
-          </a>
-        </div>
-
-        <div className="project-meta-row">
+      <div className="repo-entry__info">
+        <h2 className="repo-entry__title">{project.title}</h2>
+        <div className="repo-entry__lbl">¿Qué?</div>
+        <div className="repo-entry__val">{project.description}</div>
+        <div className="repo-entry__lbl">Contacto</div>
+        <div className="repo-entry__val" style={{ marginBottom: 6 }}>{project.contactName}</div>
+        <a href={`mailto:${project.contactEmail}`} className="repo-entry__email">
+          {project.contactEmail}
+        </a>
+        <div className="repo-meta">
           <div>
-            <p className="project-meta-label">Etiquetas</p>
-            <div className="project-tags">
+            <div className="repo-entry__lbl">Etiquetas</div>
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 6 }}>
               {project.tags.map((tag) => (
-                <span key={tag} className="project-tag">
+                <span key={tag} className="tag">
                   {tag}
                 </span>
               ))}
             </div>
           </div>
-
           <div>
-            <p className="project-meta-label">Tipo de desafio</p>
-            <p>{project.challengeType}</p>
+            <div className="repo-entry__lbl">Tipo de desafío</div>
+            <div className="repo-entry__val" style={{ marginBottom: 0, marginTop: 6 }}>
+              {project.challengeType}
+            </div>
           </div>
-
           <div>
-            <p className="project-meta-label">Nivel de involucramiento</p>
-            <p>{project.engagementLevel}</p>
+            <div className="repo-entry__lbl">Nivel de involucramiento</div>
+            <div className="repo-entry__val" style={{ marginBottom: 0, marginTop: 6 }}>
+              {project.engagementLevel}
+            </div>
           </div>
         </div>
       </div>
-    </article>
+    </div>
   );
 }
