@@ -61,7 +61,7 @@ export default async function OportunidadesPage({
     <SiteShell currentPath="/oportunidades">
       <section className="phero">
         <div className="wrap">
-          <h1 className="phero__h1">Oportunidades de investigación</h1>
+          <h1 className="phero__h1">Oportunidades</h1>
           <p className="phero__desc">
             Usa el buscador para localizar una oportunidad y combina los filtros por categoría y
             nivel de involucramiento. Cada desafío tiene un encargado académico y un portal de
