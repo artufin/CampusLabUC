@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Link from "next/link";
 import type { Project } from "@/lib/types";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="repo-entry">
+    <Link href={`/repositorio-experiencias/${project.id}`} className="repo-entry">
       <div className="repo-entry__img">
         <div className="repo-img-tags">
           {project.tags.map((tag) => (
@@ -20,9 +20,7 @@ export function ProjectCard({ project }: { project: Project }) {
         <div className="repo-entry__val">{project.description}</div>
         <div className="repo-entry__lbl">Contacto</div>
         <div className="repo-entry__val" style={{ marginBottom: 6 }}>{project.contactName}</div>
-        <a href={`mailto:${project.contactEmail}`} className="repo-entry__email">
-          {project.contactEmail}
-        </a>
+        <span className="repo-entry__email">{project.contactEmail}</span>
         <div className="repo-meta">
           <div>
             <div className="repo-entry__lbl">Etiquetas</div>
@@ -48,6 +46,6 @@ export function ProjectCard({ project }: { project: Project }) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
