@@ -21,6 +21,10 @@ export interface Experience {
   title: string;
   summary: string;
   imageUrl?: string;
+  body?: string;
+  location?: string;
+  date?: string;
+  tags?: string[];
 }
 
 export interface Sponsor {

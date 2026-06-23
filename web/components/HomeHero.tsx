@@ -10,7 +10,8 @@ export function HomeHero() {
             experimentación y creación de soluciones integrales y sostenibles.
           </p>
           <div className="hero__ctas">
-            <a href="#" className="btn btn--or">Pontificia U. Católica de Chile</a>
+            <a href="#" className="btn btn--h">Pontificia U. Católica de Chile</a>
+            <a href="#" className="btn btn--h">Escuela de Ingeniería</a>
           </div>
         </div>
       </div>

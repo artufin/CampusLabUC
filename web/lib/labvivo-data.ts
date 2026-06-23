@@ -37,7 +37,11 @@ const FALLBACK_PEOPLE: Person[] = [
     role: "Coordinacion de proyectos de innovacion",
     bio: "Lidera la articulacion de experiencias docentes en territorio y campus vivo.",
     photoUrl: "/assets/photos/enzoloiz.jpeg",
-    social: {},
+    social: {
+      email: "TODO@uc.cl",
+      instagram: "https://instagram.com/TODO",
+      linkedin: "https://linkedin.com/in/TODO",
+    },
   },
   {
     id: "exec-3",
@@ -46,7 +50,11 @@ const FALLBACK_PEOPLE: Person[] = [
     role: "Investigacion aplicada y datos abiertos",
     bio: "Impulsa el uso de repositorios abiertos para desafios interdisciplinarios.",
     photoUrl: "/assets/photos/catort.jpeg",
-    social: {},
+    social: {
+      email: "TODO@uc.cl",
+      instagram: "https://instagram.com/TODO",
+      linkedin: "https://linkedin.com/in/TODO",
+    },
   },
   {
     id: "exec-4",
@@ -55,7 +63,11 @@ const FALLBACK_PEOPLE: Person[] = [
     role: "Estudiante de Ingenieria UC",
     bio: "Desarrollador de la plataforma CampusLab UC y colaborador en su implementacion tecnica.",
     photoUrl: "/assets/photos/teb.png",
-    social: {},
+    social: {
+      email: "TODO@uc.cl",
+      instagram: "https://instagram.com/TODO",
+      linkedin: "https://linkedin.com/in/TODO",
+    },
   },
   {
     id: "exec-5",
@@ -64,7 +76,11 @@ const FALLBACK_PEOPLE: Person[] = [
     role: "Estudiante de Ingenieria UC",
     bio: "Desarrollador de la plataforma CampusLab UC y colaborador en su arquitectura de frontend.",
     photoUrl: "/assets/photos/arturo.png",
-    social: {},
+    social: {
+      email: "TODO@uc.cl",
+      instagram: "https://instagram.com/TODO",
+      linkedin: "https://linkedin.com/in/TODO",
+    },
   },
   {
     id: "academic-1",
@@ -180,6 +196,11 @@ const FALLBACK_EXPERIENCES: Experience[] = [
     summary:
       "Piloto de restauracion de biodiversidad en areas de alto trafico estudiantil.",
     imageUrl: PLACEHOLDER_IMAGE,
+    location: "Campus San Joaquin",
+    date: "Marzo 2025",
+    tags: ["Biodiversidad", "Areas verdes"],
+    body:
+      "Junto a la Direccion de Sustentabilidad se identificaron zonas de alto trafico estudiantil con baja cobertura vegetal. El piloto plantio especies nativas y midio su tasa de sobrevivencia durante dos semestres, generando una guia replicable para otras areas del campus.",
   },
   {
     id: "exp-2",
@@ -187,6 +208,11 @@ const FALLBACK_EXPERIENCES: Experience[] = [
     summary:
       "Sistema de compostaje para residuos organicos de casino universitario.",
     imageUrl: PLACEHOLDER_IMAGE,
+    location: "Casino central, Campus San Joaquin",
+    date: "Agosto 2024",
+    tags: ["Residuos", "Economia circular"],
+    body:
+      "Estudiantes de Ingenieria disenaron un sistema de vermicompostaje para procesar los residuos organicos del casino central. El compost resultante se utiliza en las areas verdes del campus, cerrando el ciclo de materia organica dentro del propio territorio universitario.",
   },
   {
     id: "exp-3",
@@ -194,6 +220,11 @@ const FALLBACK_EXPERIENCES: Experience[] = [
     summary:
       "Programa de co-diseno de espacios verdes para aprendizaje temprano.",
     imageUrl: PLACEHOLDER_IMAGE,
+    location: "Jardin infantil UC",
+    date: "Octubre 2024",
+    tags: ["Co-diseno", "Educacion"],
+    body:
+      "Un equipo interdisciplinario trabajo junto a educadoras del jardin infantil UC para rediseñar espacios exteriores como herramientas de aprendizaje temprano, integrando huertos, sombra natural y mobiliario de bajo impacto.",
   },
   {
     id: "exp-4",
@@ -201,6 +232,11 @@ const FALLBACK_EXPERIENCES: Experience[] = [
     summary:
       "Levantamiento y visualizacion de rutas peatonales y ciclistas internas.",
     imageUrl: PLACEHOLDER_IMAGE,
+    location: "Campus San Joaquin",
+    date: "Mayo 2025",
+    tags: ["Movilidad", "Datos abiertos"],
+    body:
+      "Se desplegaron contadores temporales en los accesos y ciclovias internas del campus para entender los flujos de movilidad activa. Los resultados alimentan directamente el modulo de datos abiertos del Campus Lab.",
   },
   {
     id: "exp-5",
@@ -208,6 +244,11 @@ const FALLBACK_EXPERIENCES: Experience[] = [
     summary:
       "Prototipo de captacion y uso de aguas lluvias para riego de zonas piloto.",
     imageUrl: PLACEHOLDER_IMAGE,
+    location: "Facultad de Ingenieria",
+    date: "Junio 2024",
+    tags: ["Agua", "Prototipado"],
+    body:
+      "Estudiantes de pregrado construyeron un prototipo de captacion de aguas lluvias para el riego de areas piloto, evaluando su rendimiento frente a distintos eventos de precipitacion durante un semestre completo.",
   },
 ];
 
@@ -693,15 +734,25 @@ export async function getAssociatedMembers(): Promise<string[]> {
 }
 
 export async function getLatestExperiences(limit = 5): Promise<Experience[]> {
-  const apiExperiences = await getFromApi<Experience[]>(
-    `/experiences?limit=${limit}`,
-  );
-  const source =
-    apiExperiences && apiExperiences.length > 0
-      ? apiExperiences
-      : FALLBACK_EXPERIENCES;
+  const experiences = await getExperiences();
 
-  return source.slice(0, limit);
+  return experiences.slice(0, limit);
+}
+
+export async function getExperiences(): Promise<Experience[]> {
+  const apiExperiences = await getFromApi<Experience[]>("/experiences");
+
+  return apiExperiences && apiExperiences.length > 0
+    ? apiExperiences
+    : FALLBACK_EXPERIENCES;
+}
+
+export async function getExperienceById(
+  experienceId: string,
+): Promise<Experience | null> {
+  const experiences = await getExperiences();
+
+  return experiences.find((experience) => experience.id === experienceId) ?? null;
 }
 
 export async function getSponsors(): Promise<Sponsor[]> {
@@ -746,6 +797,12 @@ export async function getProjects(
     total,
     totalPages,
   };
+}
+
+export async function getProjectById(projectId: string): Promise<Project | null> {
+  const { projects } = await getProjects(1, 999);
+
+  return projects.find((project) => project.id === projectId) ?? null;
 }
 
 export async function getChallengeCategories(): Promise<ChallengeCategory[]> {

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { EmptyState } from "@/components/EmptyState";
 import { HomeHero } from "@/components/HomeHero";
 import { LatestExperiencesCarousel } from "@/components/LatestExperiencesCarousel";
@@ -39,15 +40,16 @@ export default async function Home() {
                 Sobre la iniciativa
               </h2>
               <p className="body" style={{ marginBottom: 28 }}>
-                CampusLab UC es una innovación educativa que utiliza los campus universitarios como
-                escenarios de aprendizaje, experimentación y co-creación. Este modelo promueve la
-                colaboración activa entre academia, gestión universitaria y comunidades para enfrentar
-                desafíos relacionados con la sostenibilidad.
+                Plataforma de investigación e innovación que usa entornos reales como campo de
+                estudio, involucrando a sus propios usuarios como co-creadores de soluciones.
+                Aprovecha el espacio físico de los campus UC como microcosmos de información para
+                la experimentación, aprendizaje y co-creación entre academia, comunidad y actores
+                externos, en torno a la sustentabilidad e innovación social.
               </p>
               <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                <span className="tag">Innovación educativa</span>
-                <span className="tag">Sostenibilidad</span>
-                <span className="tag">Co-creación</span>
+                <span className="tag">Datos ecológicamente válidos</span>
+                <span className="tag">Comportamientos auténticos</span>
+                <span className="tag">Adopción real</span>
               </div>
             </div>
           </div>
@@ -65,53 +67,125 @@ export default async function Home() {
             <div className="obj-card">
               <div className="obj-card__n">01</div>
               <p className="obj-card__t">
-                Integrar academia y gestión para responder a necesidades territoriales con enfoque
-                sostenible.
+                Disponibilizar datos reales para catalizar innovaciones e investigaciones
+                sostenibles.
               </p>
             </div>
             <div className="obj-card">
               <div className="obj-card__n">02</div>
               <p className="obj-card__t">
-                Desarrollar proyectos innovadores y escalables que puedan replicarse en distintos
-                contextos.
+                Promover proyectos interdisciplinarios y apoyar la formación académica con
+                experiencias prácticas de innovación y sustentabilidad.
               </p>
             </div>
             <div className="obj-card">
               <div className="obj-card__n">03</div>
               <p className="obj-card__t">
-                Visibilizar resultados y aprendizajes para fortalecer la colaboración entre actores.
+                Contribuir a la generación de conocimiento aplicado y su transferencia hacia
+                políticas públicas y prácticas institucionales escalables.
+              </p>
+            </div>
+            <div className="obj-card">
+              <div className="obj-card__n">04</div>
+              <p className="obj-card__t">
+                Fomentar el vínculo entre la universidad y comunidades locales mediante
+                metodologías participativas.
+              </p>
+            </div>
+            <div className="obj-card">
+              <div className="obj-card__n">05</div>
+              <p className="obj-card__t">
+                Contribuir a la eficiencia operativa de los espacios y servicios del campus UC.
+              </p>
+            </div>
+            <div className="obj-card">
+              <div className="obj-card__n">06</div>
+              <p className="obj-card__t">
+                Fomentar la participación estudiantil en iniciativas de impacto local y compromiso
+                público.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pilares */}
+      {/* Cómo lo hacemos */}
       <section className="s s--white">
         <div className="wrap">
-          <div className="g2">
-            <div>
-              <h2 className="sh" style={{ marginBottom: 20 }}>Pilares</h2>
-              <p className="body">
-                Aprendizaje situado, colaboración interdisciplinaria y acción con impacto medible en
-                el entorno universitario.
+          <p className="overline" style={{ color: "var(--t)", marginBottom: 12 }}>
+            Metodología
+          </p>
+          <h2 className="sh" style={{ marginBottom: 48 }}>Cómo lo hacemos</h2>
+          <div className="g3">
+            <div className="obj-card">
+              <div className="obj-card__n">01</div>
+              <p className="obj-card__t">
+                <strong>Insight Research.</strong> Lectura del campus a partir de los datos
+                existentes y entrevistas con la comunidad, sin intervenir aún en sus prácticas.
               </p>
             </div>
-            <div className="img-ph img-forest" style={{ height: 240 }} />
+            <div className="obj-card">
+              <div className="obj-card__n">02</div>
+              <p className="obj-card__t">
+                <strong>Co-creación y prototipado.</strong> Talleres con estudiantes, académicos y
+                gestión para idear soluciones y probarlas en condiciones reales del campus.
+              </p>
+            </div>
+            <div className="obj-card">
+              <div className="obj-card__n">03</div>
+              <p className="obj-card__t">
+                <strong>Field Testing.</strong> Despliegue a mayor escala de los prototipos
+                seleccionados, midiendo su impacto con los mismos flujos de datos nativos.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Propuesta de valor */}
+      {/* Datos del campus */}
       <section className="s s--cream">
         <div className="wrap">
-          <div className="g2">
-            <div className="img-ph img-blue" style={{ height: 240 }} />
-            <div>
-              <h2 className="sh" style={{ marginBottom: 20 }}>Propuesta de valor</h2>
-              <p className="body">
-                Vincular docencia, investigación y extensión en una sola experiencia para que cada
-                desafío del campus se convierta en una oportunidad real de aprendizaje.
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 12 }}>
+            <p className="overline" style={{ color: "var(--t)" }}>
+              Infraestructura de datos
+            </p>
+            <Link href="/datos-abiertos" style={{ color: "var(--or)", fontSize: 14, fontWeight: 700 }}>
+              Ver datos abiertos →
+            </Link>
+          </div>
+          <h2 className="sh" style={{ marginBottom: 48 }}>Datos del campus</h2>
+          <div className="g3">
+            <div className="obj-card">
+              <p className="obj-card__t">
+                <strong>Energía.</strong> Consumo y generación eléctrica por edificio.
+              </p>
+            </div>
+            <div className="obj-card">
+              <p className="obj-card__t">
+                <strong>Clima interior.</strong> Temperatura, humedad y CO₂ en salas y laboratorios.
+              </p>
+            </div>
+            <div className="obj-card">
+              <p className="obj-card__t">
+                <strong>Ocupación y movilidad.</strong> Aforo de espacios y desplazamiento en el
+                campus.
+              </p>
+            </div>
+            <div className="obj-card">
+              <p className="obj-card__t">
+                <strong>Agua y residuos.</strong> Consumo de agua potable y gestión de residuos.
+              </p>
+            </div>
+            <div className="obj-card">
+              <p className="obj-card__t">
+                <strong>Flora y fauna.</strong> Biodiversidad presente en las áreas verdes del
+                campus.
+              </p>
+            </div>
+            <div className="obj-card">
+              <p className="obj-card__t">
+                <strong>Infraestructura física.</strong> Estado y uso de la infraestructura del
+                campus.
               </p>
             </div>
           </div>
@@ -137,8 +211,10 @@ export default async function Home() {
         </div>
       </section>
 
-      <SponsorBand sponsors={sponsors} />
       <LatestExperiencesCarousel items={experiences} />
+
+      <SponsorBand sponsors={sponsors} />
+
     </SiteShell>
   );
 }
