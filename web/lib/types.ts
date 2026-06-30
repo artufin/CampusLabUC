@@ -3,6 +3,7 @@ export type PersonGroup = "executive" | "academic";
 export interface SocialLinks {
   email?: string;
   instagram?: string;
+  github?: string;
   linkedin?: string;
 }
 

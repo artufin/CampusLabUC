@@ -71,7 +71,7 @@ export default async function NosotrosPage() {
       {/* Miembros asociados */}
       <section className="s s--white s--pb100">
         <div className="wrap">
-          <h2 className="sh sh--tD" style={{ marginBottom: 12 }}>Miembros asociados</h2>
+          <h2 className="sh sh--tD" style={{ marginBottom: 12 }}>Miembros eméritos</h2>
           <p className="body" style={{ marginBottom: 36, maxWidth: 560 }}>
             Comunidad amplia de estudiantes, profesores y colaboradores que participan en los
             proyectos del Campus Lab.

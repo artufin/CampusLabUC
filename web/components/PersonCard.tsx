@@ -29,7 +29,12 @@ function getMailHref(email?: string): string | undefined {
 
 export function PersonCard({ person }: { person: Person }) {
   const socials = [
-    person.social.instagram && {
+    person.group === "executive" && person.social.github && {
+      href: person.social.github,
+      label: "GitHub",
+      icon: "/assets/icons/github.svg",
+    },
+    person.group === "executive" && person.social.instagram && {
       href: person.social.instagram,
       label: "Instagram",
       icon: "/assets/icons/instagram.svg",

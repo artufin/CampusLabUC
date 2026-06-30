@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { PAGE_NAV_ITEMS } from "@/components/navigation";
@@ -24,7 +25,13 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
       <nav className="nav">
         <div className="wrap">
           <Link href="/" className="nav__brand">
-            <div className="nav__logo">UC</div>
+            <Image
+              src="/assets/icons/campuslab.svg"
+              alt="CampusLab UC"
+              width={32}
+              height={32}
+              className="nav__logo"
+            />
             <span className="nav__name">CampusLab UC</span>
           </Link>
           <ul className="nav__links">
