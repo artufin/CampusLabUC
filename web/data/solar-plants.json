@@ -1,0 +1,1145 @@
+{
+  "generatedAt": "2026-07-01T03:24:23.385Z",
+  "datasets": [
+    {
+      "id": "solar-cai",
+      "title": "Generación solar — CAi",
+      "summary": "Generación fotovoltaica en tiempo casi real de la planta CAi, monitoreada vía FusionSolar.",
+      "description": "Datos de generación fotovoltaica de la planta CAi, obtenidos automáticamente desde la plataforma de monitoreo Huawei FusionSolar utilizada por el proveedor de equipos solares Nikola Chile. La serie se actualiza dos veces al día mediante un proceso automatizado.",
+      "tags": [
+        "Energía solar",
+        "Generación eléctrica",
+        "CAi"
+      ],
+      "source": {
+        "id": "source-solar-cai",
+        "kind": "electric",
+        "label": "Planta solar CAi",
+        "location": "Centro de Aprendizaje e Innovación (CAi), Campus San Joaquín UC",
+        "magnitude": "Potencia y energía generada",
+        "unit": "kWh",
+        "expectedFrequency": "Actualización 2 veces al día",
+        "instrument": "Inversor fotovoltaico Huawei, monitoreado vía FusionSolar"
+      },
+      "stream": {
+        "mode": "polling",
+        "status": "active",
+        "cadence": "Actualización cada ~12 h",
+        "timezone": "America/Santiago",
+        "lastUpdate": "2026-07-01T03:24:05.456Z"
+      },
+      "metrics": [
+        {
+          "label": "Potencia actual",
+          "value": "0 kW",
+          "detail": "Lectura más reciente"
+        },
+        {
+          "label": "Energía hoy",
+          "value": "29.73 kWh",
+          "detail": "Acumulado del día"
+        },
+        {
+          "label": "Energía del mes",
+          "value": "609.88 kWh",
+          "detail": "Acumulado mensual"
+        },
+        {
+          "label": "Energía total",
+          "value": "12054.38 kWh",
+          "detail": "Acumulado histórico de la planta"
+        }
+      ],
+      "measurements": [
+        {
+          "timestamp": "2026-07-01T00:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T00:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T01:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T01:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T02:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T02:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T03:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        }
+      ],
+      "downloads": [
+        "JSON de generación solar"
+      ]
+    },
+    {
+      "id": "solar-hall-central",
+      "title": "Generación solar — Hall Central",
+      "summary": "Generación fotovoltaica en tiempo casi real de la planta Hall Central, monitoreada vía FusionSolar.",
+      "description": "Datos de generación fotovoltaica de la planta Hall Central, obtenidos automáticamente desde la plataforma de monitoreo Huawei FusionSolar utilizada por el proveedor de equipos solares Nikola Chile. La serie se actualiza dos veces al día mediante un proceso automatizado.",
+      "tags": [
+        "Energía solar",
+        "Generación eléctrica",
+        "Hall Central"
+      ],
+      "source": {
+        "id": "source-solar-hall-central",
+        "kind": "electric",
+        "label": "Planta solar Hall Central",
+        "location": "Hall Central, Campus San Joaquín UC",
+        "magnitude": "Potencia y energía generada",
+        "unit": "kWh",
+        "expectedFrequency": "Actualización 2 veces al día",
+        "instrument": "Inversor fotovoltaico Huawei, monitoreado vía FusionSolar"
+      },
+      "stream": {
+        "mode": "polling",
+        "status": "active",
+        "cadence": "Actualización cada ~12 h",
+        "timezone": "America/Santiago",
+        "lastUpdate": "2026-07-01T03:24:19.411Z"
+      },
+      "metrics": [
+        {
+          "label": "Potencia actual",
+          "value": "0 kW",
+          "detail": "Lectura más reciente"
+        },
+        {
+          "label": "Energía hoy",
+          "value": "14.36 kWh",
+          "detail": "Acumulado del día"
+        },
+        {
+          "label": "Energía del mes",
+          "value": "328.9 kWh",
+          "detail": "Acumulado mensual"
+        },
+        {
+          "label": "Energía total",
+          "value": "10700.84 kWh",
+          "detail": "Acumulado histórico de la planta"
+        }
+      ],
+      "measurements": [
+        {
+          "timestamp": "2026-07-01T00:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T00:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T01:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T01:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T02:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T02:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        }
+      ],
+      "downloads": [
+        "JSON de generación solar"
+      ]
+    },
+    {
+      "id": "solar-punto-limpio",
+      "title": "Generación solar — Punto Limpio",
+      "summary": "Generación fotovoltaica en tiempo casi real de la planta Punto Limpio, monitoreada vía FusionSolar.",
+      "description": "Datos de generación fotovoltaica de la planta Punto Limpio, obtenidos automáticamente desde la plataforma de monitoreo Huawei FusionSolar utilizada por el proveedor de equipos solares Nikola Chile. La serie se actualiza dos veces al día mediante un proceso automatizado.",
+      "tags": [
+        "Energía solar",
+        "Generación eléctrica",
+        "Punto Limpio"
+      ],
+      "source": {
+        "id": "source-solar-punto-limpio",
+        "kind": "electric",
+        "label": "Planta solar Punto Limpio",
+        "location": "Punto Limpio, Campus San Joaquín UC",
+        "magnitude": "Potencia y energía generada",
+        "unit": "kWh",
+        "expectedFrequency": "Actualización 2 veces al día",
+        "instrument": "Inversor fotovoltaico Huawei, monitoreado vía FusionSolar"
+      },
+      "stream": {
+        "mode": "polling",
+        "status": "active",
+        "cadence": "Actualización cada ~12 h",
+        "timezone": "America/Santiago",
+        "lastUpdate": "2026-07-01T03:24:23.306Z"
+      },
+      "metrics": [
+        {
+          "label": "Potencia actual",
+          "value": "0 kW",
+          "detail": "Lectura más reciente"
+        },
+        {
+          "label": "Energía hoy",
+          "value": "46.39 kWh",
+          "detail": "Acumulado del día"
+        },
+        {
+          "label": "Energía del mes",
+          "value": "939.13 kWh",
+          "detail": "Acumulado mensual"
+        },
+        {
+          "label": "Energía total",
+          "value": "21492.35 kWh",
+          "detail": "Acumulado histórico de la planta"
+        }
+      ],
+      "measurements": [
+        {
+          "timestamp": "2026-07-01T00:00:00.000Z",
+          "value": 0.164,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T00:30:00.000Z",
+          "value": 0.163,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T01:00:00.000Z",
+          "value": 0.166,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T01:30:00.000Z",
+          "value": 0.164,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T02:00:00.000Z",
+          "value": 0.166,
+          "quality": "good"
+        }
+      ],
+      "downloads": [
+        "JSON de generación solar"
+      ]
+    },
+    {
+      "id": "solar-cai-consumo",
+      "title": "Consumo eléctrico — CAi",
+      "summary": "Consumo eléctrico en tiempo casi real del punto CAi, monitoreado vía FusionSolar.",
+      "description": "Datos de consumo eléctrico del punto CAi, obtenidos automáticamente desde la plataforma de monitoreo Huawei FusionSolar utilizada por el proveedor de equipos solares Nikola Chile. Incluye energía consumida, comprada a la red e inyectada a la red. La serie se actualiza dos veces al día mediante un proceso automatizado.",
+      "tags": [
+        "Energía solar",
+        "Consumo eléctrico",
+        "CAi"
+      ],
+      "source": {
+        "id": "source-solar-cai-consumo",
+        "kind": "electric",
+        "label": "Consumo CAi",
+        "location": "Centro de Aprendizaje e Innovación (CAi), Campus San Joaquín UC",
+        "magnitude": "Potencia y energía consumida",
+        "unit": "kWh",
+        "expectedFrequency": "Actualización 2 veces al día",
+        "instrument": "Medidor eléctrico Huawei, monitoreado vía FusionSolar"
+      },
+      "stream": {
+        "mode": "polling",
+        "status": "active",
+        "cadence": "Actualización cada ~12 h",
+        "timezone": "America/Santiago",
+        "lastUpdate": "2026-07-01T03:24:05.456Z"
+      },
+      "metrics": [
+        {
+          "label": "Consumo hoy",
+          "value": "234.26 kWh",
+          "detail": "Acumulado del día"
+        },
+        {
+          "label": "Comprado a la red hoy",
+          "value": "204.53 kWh",
+          "detail": "Energía importada desde la red"
+        },
+        {
+          "label": "Inyectado a la red hoy",
+          "value": "0 kWh",
+          "detail": "Excedente solar exportado"
+        },
+        {
+          "label": "Autoconsumo hoy",
+          "value": "29.73 kWh",
+          "detail": "Consumo cubierto por generación propia"
+        },
+        {
+          "label": "Consumo del mes",
+          "value": "6785.87 kWh",
+          "detail": "Acumulado mensual"
+        }
+      ],
+      "measurements": [
+        {
+          "timestamp": "2026-06-30T04:00:00.000Z",
+          "value": 3.181,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T04:30:00.000Z",
+          "value": 4.067,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T05:00:00.000Z",
+          "value": 3.331,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T05:30:00.000Z",
+          "value": 4.121,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T06:00:00.000Z",
+          "value": 3.441,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T06:30:00.000Z",
+          "value": 4.016,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T07:00:00.000Z",
+          "value": 4.334,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T07:30:00.000Z",
+          "value": 3.396,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T08:00:00.000Z",
+          "value": 4.329,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T08:30:00.000Z",
+          "value": 4.598,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T09:00:00.000Z",
+          "value": 3.517,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T09:30:00.000Z",
+          "value": 3.513,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T10:00:00.000Z",
+          "value": 3.996,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T10:30:00.000Z",
+          "value": 4.066,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T11:00:00.000Z",
+          "value": 8.882,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T11:30:00.000Z",
+          "value": 8.148,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T12:00:00.000Z",
+          "value": 7.172,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T12:30:00.000Z",
+          "value": 12.098,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T13:00:00.000Z",
+          "value": 14.331,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T13:30:00.000Z",
+          "value": 12.211,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T14:00:00.000Z",
+          "value": 13.647,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T14:30:00.000Z",
+          "value": 17.442,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T15:00:00.000Z",
+          "value": 14.35,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T15:30:00.000Z",
+          "value": 19.129,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T16:00:00.000Z",
+          "value": 17.525,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T16:30:00.000Z",
+          "value": 10.868,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T17:00:00.000Z",
+          "value": 16.252,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T17:30:00.000Z",
+          "value": 15.451,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T18:00:00.000Z",
+          "value": 15.641,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T18:30:00.000Z",
+          "value": 13.088,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T19:00:00.000Z",
+          "value": 15.105,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T19:30:00.000Z",
+          "value": 17.623,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T20:00:00.000Z",
+          "value": 14.372,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T20:30:00.000Z",
+          "value": 13.803,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T21:00:00.000Z",
+          "value": 17.391,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T21:30:00.000Z",
+          "value": 11.439,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T22:00:00.000Z",
+          "value": 15.48,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T22:30:00.000Z",
+          "value": 14.499,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T23:00:00.000Z",
+          "value": 9.837,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T23:30:00.000Z",
+          "value": 8.912,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T00:00:00.000Z",
+          "value": 11.622,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T00:30:00.000Z",
+          "value": 8.849,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T01:00:00.000Z",
+          "value": 10.055,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T01:30:00.000Z",
+          "value": 8.581,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T02:00:00.000Z",
+          "value": 9.317,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T02:30:00.000Z",
+          "value": 3.665,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T03:00:00.000Z",
+          "value": 7.009,
+          "quality": "good"
+        }
+      ],
+      "downloads": [
+        "JSON de consumo eléctrico"
+      ]
+    },
+    {
+      "id": "solar-hall-central-consumo",
+      "title": "Consumo eléctrico — Hall Central",
+      "summary": "Consumo eléctrico en tiempo casi real del punto Hall Central, monitoreado vía FusionSolar.",
+      "description": "Datos de consumo eléctrico del punto Hall Central, obtenidos automáticamente desde la plataforma de monitoreo Huawei FusionSolar utilizada por el proveedor de equipos solares Nikola Chile. Incluye energía consumida, comprada a la red e inyectada a la red. La serie se actualiza dos veces al día mediante un proceso automatizado.",
+      "tags": [
+        "Energía solar",
+        "Consumo eléctrico",
+        "Hall Central"
+      ],
+      "source": {
+        "id": "source-solar-hall-central-consumo",
+        "kind": "electric",
+        "label": "Consumo Hall Central",
+        "location": "Hall Central, Campus San Joaquín UC",
+        "magnitude": "Potencia y energía consumida",
+        "unit": "kWh",
+        "expectedFrequency": "Actualización 2 veces al día",
+        "instrument": "Medidor eléctrico Huawei, monitoreado vía FusionSolar"
+      },
+      "stream": {
+        "mode": "polling",
+        "status": "active",
+        "cadence": "Actualización cada ~12 h",
+        "timezone": "America/Santiago",
+        "lastUpdate": "2026-07-01T03:24:19.411Z"
+      },
+      "metrics": [
+        {
+          "label": "Consumo hoy",
+          "value": "479.73 kWh",
+          "detail": "Acumulado del día"
+        },
+        {
+          "label": "Comprado a la red hoy",
+          "value": "465.37 kWh",
+          "detail": "Energía importada desde la red"
+        },
+        {
+          "label": "Inyectado a la red hoy",
+          "value": "0 kWh",
+          "detail": "Excedente solar exportado"
+        },
+        {
+          "label": "Autoconsumo hoy",
+          "value": "14.36 kWh",
+          "detail": "Consumo cubierto por generación propia"
+        },
+        {
+          "label": "Consumo del mes",
+          "value": "12435.48 kWh",
+          "detail": "Acumulado mensual"
+        }
+      ],
+      "measurements": [
+        {
+          "timestamp": "2026-06-30T04:00:00.000Z",
+          "value": 20.578,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T04:30:00.000Z",
+          "value": 5.741,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T05:00:00.000Z",
+          "value": 6.975,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T05:30:00.000Z",
+          "value": 19.871,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T06:00:00.000Z",
+          "value": 7.408,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T06:30:00.000Z",
+          "value": 21.411,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T07:00:00.000Z",
+          "value": 6.277,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T07:30:00.000Z",
+          "value": 21.87,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T08:00:00.000Z",
+          "value": 7.104,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T08:30:00.000Z",
+          "value": 21.931,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T09:00:00.000Z",
+          "value": 6.554,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T09:30:00.000Z",
+          "value": 6.255,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T10:00:00.000Z",
+          "value": 8.011,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T10:30:00.000Z",
+          "value": 7.212,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T11:00:00.000Z",
+          "value": 21.817,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T11:30:00.000Z",
+          "value": 10.382,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T12:00:00.000Z",
+          "value": 19.751,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T12:30:00.000Z",
+          "value": 23.235,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T13:00:00.000Z",
+          "value": 47.801,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T13:30:00.000Z",
+          "value": 51.272,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T14:00:00.000Z",
+          "value": 39.846,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T14:30:00.000Z",
+          "value": 44.218,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T15:00:00.000Z",
+          "value": 41.853,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T15:30:00.000Z",
+          "value": 29.556,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T16:00:00.000Z",
+          "value": 27.471,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T16:30:00.000Z",
+          "value": 39.116,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T17:00:00.000Z",
+          "value": 25.684,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T17:30:00.000Z",
+          "value": 25.504,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T18:00:00.000Z",
+          "value": 41.733,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T18:30:00.000Z",
+          "value": 18.607,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T19:00:00.000Z",
+          "value": 19.629,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T19:30:00.000Z",
+          "value": 24.597,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T20:00:00.000Z",
+          "value": 33.767,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T20:30:00.000Z",
+          "value": 22.515,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T21:00:00.000Z",
+          "value": 20.59,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T21:30:00.000Z",
+          "value": 33.38,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T22:00:00.000Z",
+          "value": 38.132,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T22:30:00.000Z",
+          "value": 16.429,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T23:00:00.000Z",
+          "value": 29.856,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T23:30:00.000Z",
+          "value": 10.93,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T00:00:00.000Z",
+          "value": 10.552,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T00:30:00.000Z",
+          "value": 8.954,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T01:00:00.000Z",
+          "value": 5.94,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T01:30:00.000Z",
+          "value": 22.419,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T02:00:00.000Z",
+          "value": 7.782,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T02:30:00.000Z",
+          "value": 21.181,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T03:00:00.000Z",
+          "value": 6.443,
+          "quality": "good"
+        }
+      ],
+      "downloads": [
+        "JSON de consumo eléctrico"
+      ]
+    },
+    {
+      "id": "solar-punto-limpio-consumo",
+      "title": "Consumo eléctrico — Punto Limpio",
+      "summary": "Consumo eléctrico en tiempo casi real del punto Punto Limpio, monitoreado vía FusionSolar.",
+      "description": "Datos de consumo eléctrico del punto Punto Limpio, obtenidos automáticamente desde la plataforma de monitoreo Huawei FusionSolar utilizada por el proveedor de equipos solares Nikola Chile. Incluye energía consumida, comprada a la red e inyectada a la red. La serie se actualiza dos veces al día mediante un proceso automatizado.",
+      "tags": [
+        "Energía solar",
+        "Consumo eléctrico",
+        "Punto Limpio"
+      ],
+      "source": {
+        "id": "source-solar-punto-limpio-consumo",
+        "kind": "electric",
+        "label": "Consumo Punto Limpio",
+        "location": "Punto Limpio, Campus San Joaquín UC",
+        "magnitude": "Potencia y energía consumida",
+        "unit": "kWh",
+        "expectedFrequency": "Actualización 2 veces al día",
+        "instrument": "Medidor eléctrico Huawei, monitoreado vía FusionSolar"
+      },
+      "stream": {
+        "mode": "polling",
+        "status": "active",
+        "cadence": "Actualización cada ~12 h",
+        "timezone": "America/Santiago",
+        "lastUpdate": "2026-07-01T03:24:23.306Z"
+      },
+      "metrics": [
+        {
+          "label": "Consumo hoy",
+          "value": "6.78 kWh",
+          "detail": "Acumulado del día"
+        },
+        {
+          "label": "Comprado a la red hoy",
+          "value": "0.18 kWh",
+          "detail": "Energía importada desde la red"
+        },
+        {
+          "label": "Inyectado a la red hoy",
+          "value": "39.89 kWh",
+          "detail": "Excedente solar exportado"
+        },
+        {
+          "label": "Autoconsumo hoy",
+          "value": "7.810000000000002 kWh",
+          "detail": "Consumo cubierto por generación propia"
+        },
+        {
+          "label": "Consumo del mes",
+          "value": "166 kWh",
+          "detail": "Acumulado mensual"
+        }
+      ],
+      "measurements": [
+        {
+          "timestamp": "2026-06-30T04:00:00.000Z",
+          "value": 0.08,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T04:30:00.000Z",
+          "value": 0.092,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T05:00:00.000Z",
+          "value": 0.095,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T05:30:00.000Z",
+          "value": 0.105,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T06:00:00.000Z",
+          "value": 0.092,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T06:30:00.000Z",
+          "value": 0.088,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T07:00:00.000Z",
+          "value": 0.102,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T07:30:00.000Z",
+          "value": 0.086,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T08:00:00.000Z",
+          "value": 0.088,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T08:30:00.000Z",
+          "value": 0.057,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T09:00:00.000Z",
+          "value": 0.099,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T09:30:00.000Z",
+          "value": 0.096,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T10:00:00.000Z",
+          "value": 0.089,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T10:30:00.000Z",
+          "value": 0.087,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T11:00:00.000Z",
+          "value": 0.153,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T11:30:00.000Z",
+          "value": 0.175,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T12:00:00.000Z",
+          "value": 0.137,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T12:30:00.000Z",
+          "value": 0.233,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T13:00:00.000Z",
+          "value": 0.14,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T13:30:00.000Z",
+          "value": 0.132,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T14:00:00.000Z",
+          "value": 0.13,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T14:30:00.000Z",
+          "value": 1.288,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T15:00:00.000Z",
+          "value": 0.234,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T15:30:00.000Z",
+          "value": 1.79,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T16:00:00.000Z",
+          "value": 1.795,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T16:30:00.000Z",
+          "value": 0.999,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T17:00:00.000Z",
+          "value": 0.603,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T17:30:00.000Z",
+          "value": 0.633,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T18:00:00.000Z",
+          "value": 0.363,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T18:30:00.000Z",
+          "value": 0.238,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T19:00:00.000Z",
+          "value": 0.177,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T19:30:00.000Z",
+          "value": 0.209,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T20:00:00.000Z",
+          "value": 0.124,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T20:30:00.000Z",
+          "value": 0.113,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T21:00:00.000Z",
+          "value": 0.126,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T21:30:00.000Z",
+          "value": 0.132,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T22:00:00.000Z",
+          "value": 0.19,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T22:30:00.000Z",
+          "value": 0.282,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T23:00:00.000Z",
+          "value": 0.174,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-06-30T23:30:00.000Z",
+          "value": 0.18,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T00:00:00.000Z",
+          "value": 0.169,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T00:30:00.000Z",
+          "value": 0.196,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T01:00:00.000Z",
+          "value": 0.18,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T01:30:00.000Z",
+          "value": 0.191,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T02:00:00.000Z",
+          "value": 0.181,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T02:30:00.000Z",
+          "value": 0.19,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-01T03:00:00.000Z",
+          "value": 0.199,
+          "quality": "good"
+        }
+      ],
+      "downloads": [
+        "JSON de consumo eléctrico"
+      ]
+    }
+  ]
+}

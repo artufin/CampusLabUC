@@ -7,9 +7,9 @@ interface SponsorBandProps {
 
 export function SponsorBand({ sponsors }: SponsorBandProps) {
   return (
-    <section className="s s--pa s--slim">
+    <section className="s s--t s--slim">
       <div className="wrap">
-        <p className="overline" style={{ color: "var(--tm)", marginBottom: 28 }}>
+        <p className="overline" style={{ color: "var(--tL)", marginBottom: 28 }}>
           Instituciones colaboradoras
         </p>
         <div className="sponsors">

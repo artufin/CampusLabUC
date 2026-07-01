@@ -4,6 +4,11 @@ interface OpenDataSeriesChartProps {
   dataset: OpenDataDataset;
 }
 
+/** Above this many points, individual circles would overlap into an unreadable blob — show only the line. */
+const MAX_VISIBLE_CIRCLES = 40;
+/** Fixed label count regardless of dataset size — an unbounded label-per-point row overflows the layout. */
+const MAX_AXIS_LABELS = 6;
+
 function formatMeasurementLabel(timestamp: string) {
   return new Intl.DateTimeFormat("es-CL", {
     day: "2-digit",
@@ -15,6 +20,19 @@ function formatMeasurementLabel(timestamp: string) {
 
 function formatSummaryValue(value: number) {
   return Number.isInteger(value) ? String(value) : value.toFixed(2);
+}
+
+/** Picks up to `maxLabels` indices, evenly spaced across `count`, always including the first and last. */
+function pickLabelIndices(count: number, maxLabels: number): Set<number> {
+  if (count <= maxLabels) {
+    return new Set(Array.from({ length: count }, (_, i) => i));
+  }
+  const step = (count - 1) / (maxLabels - 1);
+  const indices = new Set<number>();
+  for (let i = 0; i < maxLabels; i++) {
+    indices.add(Math.round(i * step));
+  }
+  return indices;
 }
 
 function buildLinePoints(
@@ -52,6 +70,8 @@ export function OpenDataSeriesChart({ dataset }: OpenDataSeriesChartProps) {
     .map((point, index) => `${index === 0 ? "M" : "L"}${point.x},${point.y}`)
     .join(" ");
   const fillPath = `${pathData} L ${width - padding},${height - padding} L ${padding},${height - padding} Z`;
+  const showCircles = points.length <= MAX_VISIBLE_CIRCLES;
+  const labelIndices = pickLabelIndices(dataset.measurements.length, MAX_AXIS_LABELS);
 
   return (
     <section className="dataset-chart-card">
@@ -90,23 +110,22 @@ export function OpenDataSeriesChart({ dataset }: OpenDataSeriesChartProps) {
           <path d={fillPath} className="dataset-chart-area" fill={`url(#chart-fill-${dataset.id})`} />
           <path d={pathData} className="dataset-chart-line" />
 
-          {points.map((point, index) => (
-            <g key={`${dataset.measurements[index].timestamp}-${index}`}>
-              <circle
-                cx={point.x}
-                cy={point.y}
-                r={5}
-                className={`dataset-chart-point quality-${dataset.measurements[index].quality}`}
-              />
-            </g>
-          ))}
+          {showCircles &&
+            points.map((point, index) => (
+              <g key={`${dataset.measurements[index].timestamp}-${index}`}>
+                <circle
+                  cx={point.x}
+                  cy={point.y}
+                  r={5}
+                  className={`dataset-chart-point quality-${dataset.measurements[index].quality}`}
+                />
+              </g>
+            ))}
         </svg>
 
         <div className="dataset-chart-axis">
           {dataset.measurements.map((measurement, index) => {
-            if (index > 0 && index < dataset.measurements.length - 1 && index % 2 === 1) {
-              return null;
-            }
+            if (!labelIndices.has(index)) return null;
 
             return (
               <span key={measurement.timestamp}>

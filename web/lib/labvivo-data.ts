@@ -10,8 +10,21 @@ import {
   type Project,
   type Sponsor,
 } from "@/lib/types";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_LABVIVO_API_URL;
+const SOLAR_DATA_PATH = path.join(process.cwd(), "data", "solar-plants.json");
+
+function readLocalSolarDatasets(): OpenDataDataset[] | null {
+  try {
+    const raw = readFileSync(SOLAR_DATA_PATH, "utf-8");
+    const parsed = JSON.parse(raw) as { generatedAt: string; datasets: OpenDataDataset[] };
+    return parsed.datasets.length > 0 ? parsed.datasets : null;
+  } catch {
+    return null;
+  }
+}
 
 const PLACEHOLDER_PHOTO = "/assets/photos/andres_villela_v2.png";
 const PLACEHOLDER_IMAGE = "/assets/photos/experiencia_img.png";
@@ -26,7 +39,7 @@ const FALLBACK_PEOPLE: Person[] = [
     photoUrl: PLACEHOLDER_PHOTO,
     social: {
       email: "andres.villela@uc.cl",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/andres-villela-chacon-27b15a30/",
     },
   },
   {
@@ -38,7 +51,7 @@ const FALLBACK_PEOPLE: Person[] = [
     photoUrl: "/assets/photos/enzoloiz.jpeg",
     social: {
       email: "TODO@uc.cl",
-      linkedin: "https://linkedin.com/in/TODO",
+      linkedin: "https://www.linkedin.com/in/enzo-loiza-bastias/",
     },
   },
   {
@@ -50,7 +63,7 @@ const FALLBACK_PEOPLE: Person[] = [
     photoUrl: "/assets/photos/catort.jpeg",
     social: {
       email: "TODO@uc.cl",
-      linkedin: "https://linkedin.com/in/TODO",
+      linkedin: "https://www.linkedin.com/in/cortegacalderon/",
     },
   },
   {
@@ -62,7 +75,8 @@ const FALLBACK_PEOPLE: Person[] = [
     photoUrl: "/assets/photos/teb.png",
     social: {
       email: "TODO@uc.cl",
-      linkedin: "https://linkedin.com/in/TODO",
+      linkedin: "https://www.linkedin.com/in/eberos/",
+      github: "https://github.com/tebi01",
     },
   },
   {
@@ -74,7 +88,8 @@ const FALLBACK_PEOPLE: Person[] = [
     photoUrl: "/assets/photos/arturo.png",
     social: {
       email: "TODO@uc.cl",
-      linkedin: "https://linkedin.com/in/TODO",
+      linkedin: "https://www.linkedin.com/in/arturo-herreros/",
+      github: "https://github.com/artufin",
     },
   },
   {
@@ -86,7 +101,7 @@ const FALLBACK_PEOPLE: Person[] = [
     photoUrl: PLACEHOLDER_PHOTO,
     social: {
       email: "valentina.riquelme@uc.cl",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/leoncio-cabrera-castro-930b19121/",
     },
   },
   {
@@ -98,7 +113,7 @@ const FALLBACK_PEOPLE: Person[] = [
     photoUrl: PLACEHOLDER_PHOTO,
     social: {
       email: "nicolas.becerra@uc.cl",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/rodrigocarrasco/",
     },
   },
   {
@@ -110,7 +125,7 @@ const FALLBACK_PEOPLE: Person[] = [
     photoUrl: PLACEHOLDER_PHOTO,
     social: {
       email: "marta.olivares@uc.cl",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/josé-m-cardemil-11991642/?locale=es",
     },
   },
   {
@@ -122,7 +137,7 @@ const FALLBACK_PEOPLE: Person[] = [
     photoUrl: PLACEHOLDER_PHOTO,
     social: {
       email: "javier.cifuentes@uc.cl",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/paty-galilea/",
     },
   },
 ];
@@ -786,10 +801,16 @@ export async function getOpenDataEntries(): Promise<OpenDataEntry[]> {
 
 export async function getOpenDataDatasets(): Promise<OpenDataDataset[]> {
   const apiDatasets = await getFromApi<OpenDataDataset[]>('/open-data/datasets');
+  if (apiDatasets && apiDatasets.length > 0) {
+    return apiDatasets;
+  }
 
-  return apiDatasets && apiDatasets.length > 0
-    ? apiDatasets
-    : FALLBACK_OPEN_DATA_DATASETS;
+  const localSolarDatasets = readLocalSolarDatasets();
+  if (localSolarDatasets) {
+    return [...localSolarDatasets, ...FALLBACK_OPEN_DATA_DATASETS];
+  }
+
+  return FALLBACK_OPEN_DATA_DATASETS;
 }
 
 export async function getOpenDataDatasetById(

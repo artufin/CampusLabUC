@@ -42,6 +42,7 @@ h1, h2, h3 { font-family: var(--serif); }
 .s--tL    { background: var(--tL); }
 .s--tD    { background: var(--tD); }
 .s--pa    { background: var(--pa); }
+.s--t     { background: var(--t); }
 .s--slim  { padding-top: 3.25rem; padding-bottom: 3.25rem; }
 .s--pb100 { padding-bottom: 6.25rem; }
 
@@ -187,8 +188,8 @@ h1, h2, h3 { font-family: var(--serif); }
 
 /* ─── Sponsors ─── */
 .sponsors    { display: flex; gap: 4.5rem; align-items: center; flex-wrap: wrap; }
-.sponsor-n   { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--t); opacity: .62; }
-.sponsor-logo { height: 3.75rem; width: auto; object-fit: contain; opacity: .62; }
+.sponsor-n   { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: #fff; opacity: .85; }
+.sponsor-logo { height: 3.75rem; width: auto; object-fit: contain; opacity: .92; }
 
 /* ─── Repository entry ─── */
 .repo-entry       { display: grid; grid-template-columns: 1fr 1fr; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 2px 20px rgba(0,0,0,.06); margin-bottom: 2.25rem; transition: box-shadow .2s, transform .2s; }

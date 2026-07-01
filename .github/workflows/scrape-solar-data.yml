@@ -1,0 +1,43 @@
+name: Scrape solar generation data
+
+on:
+  schedule:
+    - cron: "0 12 * * *" # ~08:00 America/Santiago (UTC-4)
+    - cron: "0 22 * * *" # ~18:00 America/Santiago (UTC-4)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: web/package-lock.json
+
+      - run: npm ci
+
+      - run: npx playwright install --with-deps chromium
+
+      - run: npm run scrape:solar
+        env:
+          FUSIONSOLAR_EMAIL: ${{ secrets.FUSIONSOLAR_EMAIL }}
+          FUSIONSOLAR_PASSWORD: ${{ secrets.FUSIONSOLAR_PASSWORD }}
+
+      - name: Commit updated dataset
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/solar-plants.json
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "chore: update solar generation data [skip ci]"
+          git push
