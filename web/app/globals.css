@@ -149,11 +149,12 @@ h1, h2, h3 { font-family: var(--serif); }
 .img-forest    { background: linear-gradient(135deg, #2a5a3e, #3d7a52); }
 
 /* ─── Academic card ─── */
-.ac-card       { position: relative; height: 14.5rem; background: #fff; border-radius: 0.75rem; overflow: hidden; border: 1px solid var(--gy); box-shadow: 0 2px 14px rgba(0,0,0,.05); transition: box-shadow .2s; outline: none; }
+.ac-card       { position: relative; height: 17.25rem; background: #fff; border-radius: 0.75rem; overflow: hidden; border: 1px solid var(--gy); box-shadow: 0 2px 14px rgba(0,0,0,.05); transition: box-shadow .2s, height .2s; outline: none; }
 .ac-card:hover,
-.ac-card:focus-within { box-shadow: 0 8px 28px rgba(0,0,0,.09); }
+.ac-card:focus-within { height: 18.5rem; box-shadow: 0 8px 28px rgba(0,0,0,.09); }
 .ac-card__top  { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
 .ac-card__ini  { border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.85); font-weight: 700; background: rgba(255,255,255,.15); width: 4.5rem; height: 4.5rem; font-size: 1.375rem; }
+.ac-card__photo { object-fit: cover; }
 .ac-card__body { position: absolute; left: 0; right: 0; bottom: 0; background: #fff; padding: 1.25rem 1.5rem 1.375rem; display: flex; flex-direction: column; }
 .ac-card__name { font-weight: 700; font-size: 0.938rem; color: var(--tD); margin-bottom: 0.188rem; }
 .ac-card__role { font-size: 0.719rem; color: var(--or); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }

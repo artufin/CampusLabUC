@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-01T03:24:23.385Z",
+  "generatedAt": "2026-07-04T23:37:00.665Z",
   "datasets": [
     {
       "id": "solar-cai",
@@ -26,7 +26,7 @@
         "status": "active",
         "cadence": "Actualización cada ~12 h",
         "timezone": "America/Santiago",
-        "lastUpdate": "2026-07-01T03:24:05.456Z"
+        "lastUpdate": "2026-07-04T23:36:51.553Z"
       },
       "metrics": [
         {
@@ -36,17 +36,17 @@
         },
         {
           "label": "Energía hoy",
-          "value": "29.73 kWh",
+          "value": "18.57 kWh",
           "detail": "Acumulado del día"
         },
         {
           "label": "Energía del mes",
-          "value": "609.88 kWh",
+          "value": "109.02 kWh",
           "detail": "Acumulado mensual"
         },
         {
           "label": "Energía total",
-          "value": "12054.38 kWh",
+          "value": "12163.4 kWh",
           "detail": "Acumulado histórico de la planta"
         }
       ],
@@ -85,6 +85,236 @@
           "timestamp": "2026-07-01T03:00:00.000Z",
           "value": 0,
           "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T00:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T00:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T01:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T01:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T02:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T02:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T03:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T03:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T04:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T04:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T05:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T05:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T06:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T06:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T07:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T07:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T08:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T08:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T09:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T09:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T10:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T10:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T11:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T11:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T12:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T12:30:00.000Z",
+          "value": 0.23,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T13:00:00.000Z",
+          "value": 0.431,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T13:30:00.000Z",
+          "value": 1.905,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T14:00:00.000Z",
+          "value": 3.622,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T14:30:00.000Z",
+          "value": 4.789,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T15:00:00.000Z",
+          "value": 5.441,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T15:30:00.000Z",
+          "value": 5.869,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T16:00:00.000Z",
+          "value": 6.404,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T16:30:00.000Z",
+          "value": 1.904,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T17:00:00.000Z",
+          "value": 1.935,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T17:30:00.000Z",
+          "value": 1.586,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T18:00:00.000Z",
+          "value": 1.497,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T18:30:00.000Z",
+          "value": 0.97,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T19:00:00.000Z",
+          "value": 0.684,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T19:30:00.000Z",
+          "value": 0.511,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T20:00:00.000Z",
+          "value": 0.312,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T20:30:00.000Z",
+          "value": 0.343,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T21:00:00.000Z",
+          "value": 0.126,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T21:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T22:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T22:30:00.000Z",
+          "value": 0,
+          "quality": "good"
         }
       ],
       "downloads": [
@@ -116,7 +346,7 @@
         "status": "active",
         "cadence": "Actualización cada ~12 h",
         "timezone": "America/Santiago",
-        "lastUpdate": "2026-07-01T03:24:19.411Z"
+        "lastUpdate": "2026-07-04T23:36:56.164Z"
       },
       "metrics": [
         {
@@ -126,17 +356,17 @@
         },
         {
           "label": "Energía hoy",
-          "value": "14.36 kWh",
+          "value": "7.22 kWh",
           "detail": "Acumulado del día"
         },
         {
           "label": "Energía del mes",
-          "value": "328.9 kWh",
+          "value": "52.02 kWh",
           "detail": "Acumulado mensual"
         },
         {
           "label": "Energía total",
-          "value": "10700.84 kWh",
+          "value": "10752.86 kWh",
           "detail": "Acumulado histórico de la planta"
         }
       ],
@@ -170,6 +400,236 @@
           "timestamp": "2026-07-01T02:30:00.000Z",
           "value": 0,
           "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T00:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T00:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T01:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T01:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T02:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T02:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T03:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T03:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T04:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T04:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T05:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T05:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T06:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T06:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T07:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T07:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T08:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T08:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T09:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T09:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T10:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T10:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T11:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T11:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T12:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T12:30:00.000Z",
+          "value": 0.158,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T13:00:00.000Z",
+          "value": 0.252,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T13:30:00.000Z",
+          "value": 0.309,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T14:00:00.000Z",
+          "value": 0.35,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T14:30:00.000Z",
+          "value": 0.414,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T15:00:00.000Z",
+          "value": 1.249,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T15:30:00.000Z",
+          "value": 1.695,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T16:00:00.000Z",
+          "value": 2.068,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T16:30:00.000Z",
+          "value": 1.499,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T17:00:00.000Z",
+          "value": 1.605,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T17:30:00.000Z",
+          "value": 1.352,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T18:00:00.000Z",
+          "value": 1.284,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T18:30:00.000Z",
+          "value": 0.853,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T19:00:00.000Z",
+          "value": 0.608,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T19:30:00.000Z",
+          "value": 0.46,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T20:00:00.000Z",
+          "value": 0.275,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T20:30:00.000Z",
+          "value": 0.308,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T21:00:00.000Z",
+          "value": 0.104,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T21:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T22:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T22:30:00.000Z",
+          "value": 0,
+          "quality": "good"
         }
       ],
       "downloads": [
@@ -201,7 +661,7 @@
         "status": "active",
         "cadence": "Actualización cada ~12 h",
         "timezone": "America/Santiago",
-        "lastUpdate": "2026-07-01T03:24:23.306Z"
+        "lastUpdate": "2026-07-04T23:37:00.576Z"
       },
       "metrics": [
         {
@@ -211,17 +671,17 @@
         },
         {
           "label": "Energía hoy",
-          "value": "46.39 kWh",
+          "value": "27.32 kWh",
           "detail": "Acumulado del día"
         },
         {
           "label": "Energía del mes",
-          "value": "939.13 kWh",
+          "value": "166.23 kWh",
           "detail": "Acumulado mensual"
         },
         {
           "label": "Energía total",
-          "value": "21492.35 kWh",
+          "value": "21658.45 kWh",
           "detail": "Acumulado histórico de la planta"
         }
       ],
@@ -249,6 +709,236 @@
         {
           "timestamp": "2026-07-01T02:00:00.000Z",
           "value": 0.166,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T00:00:00.000Z",
+          "value": 0.165,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T00:30:00.000Z",
+          "value": 0.148,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T01:00:00.000Z",
+          "value": 0.146,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T01:30:00.000Z",
+          "value": 0.149,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T02:00:00.000Z",
+          "value": 0.147,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T02:30:00.000Z",
+          "value": 0.148,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T03:00:00.000Z",
+          "value": 0.23,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T03:30:00.000Z",
+          "value": 0.148,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T04:00:00.000Z",
+          "value": 0.147,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T04:30:00.000Z",
+          "value": 0.148,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T05:00:00.000Z",
+          "value": 0.149,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T05:30:00.000Z",
+          "value": 0.148,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T06:00:00.000Z",
+          "value": 0.147,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T06:30:00.000Z",
+          "value": 0.147,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T07:00:00.000Z",
+          "value": 0.148,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T07:30:00.000Z",
+          "value": 0.131,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T08:00:00.000Z",
+          "value": 0.082,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T08:30:00.000Z",
+          "value": 0.081,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T09:00:00.000Z",
+          "value": 0.081,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T09:30:00.000Z",
+          "value": 0.083,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T10:00:00.000Z",
+          "value": 0.081,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T10:30:00.000Z",
+          "value": 0.082,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T11:00:00.000Z",
+          "value": 0.083,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T11:30:00.000Z",
+          "value": 0.082,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T12:00:00.000Z",
+          "value": 0.13,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T12:30:00.000Z",
+          "value": 0.809,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T13:00:00.000Z",
+          "value": 2.359,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T13:30:00.000Z",
+          "value": 3.943,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T14:00:00.000Z",
+          "value": 4.687,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T14:30:00.000Z",
+          "value": 4.01,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T15:00:00.000Z",
+          "value": 4.966,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T15:30:00.000Z",
+          "value": 5.562,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T16:00:00.000Z",
+          "value": 8.876,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T16:30:00.000Z",
+          "value": 3.217,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T17:00:00.000Z",
+          "value": 3.273,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T17:30:00.000Z",
+          "value": 2.389,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T18:00:00.000Z",
+          "value": 2.638,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T18:30:00.000Z",
+          "value": 1.727,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T19:00:00.000Z",
+          "value": 1.401,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T19:30:00.000Z",
+          "value": 0.917,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T20:00:00.000Z",
+          "value": 0.396,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T20:30:00.000Z",
+          "value": 0.624,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T21:00:00.000Z",
+          "value": 0.229,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T21:30:00.000Z",
+          "value": 0.057,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T22:00:00.000Z",
+          "value": 0.114,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T22:30:00.000Z",
+          "value": 0.081,
           "quality": "good"
         }
       ],
@@ -281,32 +971,32 @@
         "status": "active",
         "cadence": "Actualización cada ~12 h",
         "timezone": "America/Santiago",
-        "lastUpdate": "2026-07-01T03:24:05.456Z"
+        "lastUpdate": "2026-07-04T23:36:51.553Z"
       },
       "metrics": [
         {
           "label": "Consumo hoy",
-          "value": "234.26 kWh",
+          "value": "70.74 kWh",
           "detail": "Acumulado del día"
         },
         {
           "label": "Comprado a la red hoy",
-          "value": "204.53 kWh",
+          "value": "55.22 kWh",
           "detail": "Energía importada desde la red"
         },
         {
           "label": "Inyectado a la red hoy",
-          "value": "0 kWh",
+          "value": "3.05 kWh",
           "detail": "Excedente solar exportado"
         },
         {
           "label": "Autoconsumo hoy",
-          "value": "29.73 kWh",
+          "value": "15.52 kWh",
           "detail": "Consumo cubierto por generación propia"
         },
         {
           "label": "Consumo del mes",
-          "value": "6785.87 kWh",
+          "value": "1151.48 kWh",
           "detail": "Acumulado mensual"
         }
       ],
@@ -545,6 +1235,206 @@
           "timestamp": "2026-07-01T03:00:00.000Z",
           "value": 7.009,
           "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T04:00:00.000Z",
+          "value": 4.134,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T04:30:00.000Z",
+          "value": 3.403,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T05:00:00.000Z",
+          "value": 3.394,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T05:30:00.000Z",
+          "value": 3.828,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T06:00:00.000Z",
+          "value": 2.91,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T06:30:00.000Z",
+          "value": 3.785,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T07:00:00.000Z",
+          "value": 3.379,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T07:30:00.000Z",
+          "value": 3.317,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T08:00:00.000Z",
+          "value": 3.08,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T08:30:00.000Z",
+          "value": 3.369,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T09:00:00.000Z",
+          "value": 3.923,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T09:30:00.000Z",
+          "value": 3.988,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T10:00:00.000Z",
+          "value": 3.511,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T10:30:00.000Z",
+          "value": 3.991,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T11:00:00.000Z",
+          "value": 3.516,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T11:30:00.000Z",
+          "value": 3.008,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T12:00:00.000Z",
+          "value": 3.629,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T12:30:00.000Z",
+          "value": 3.436,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T13:00:00.000Z",
+          "value": 3.599,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T13:30:00.000Z",
+          "value": 3.301,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T14:00:00.000Z",
+          "value": 3.664,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T14:30:00.000Z",
+          "value": 3.599,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T15:00:00.000Z",
+          "value": 3.941,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T15:30:00.000Z",
+          "value": 4.246,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T16:00:00.000Z",
+          "value": 3.795,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T16:30:00.000Z",
+          "value": 3.244,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T17:00:00.000Z",
+          "value": 3.978,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T17:30:00.000Z",
+          "value": 5.087,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T18:00:00.000Z",
+          "value": 5.206,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T18:30:00.000Z",
+          "value": 3.247,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T19:00:00.000Z",
+          "value": 3.344,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T19:30:00.000Z",
+          "value": 4.226,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T20:00:00.000Z",
+          "value": 3.379,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T20:30:00.000Z",
+          "value": 3.41,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T21:00:00.000Z",
+          "value": 4.267,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T21:30:00.000Z",
+          "value": 3.373,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T22:00:00.000Z",
+          "value": 3.03,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T22:30:00.000Z",
+          "value": 3.743,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T23:00:00.000Z",
+          "value": 3.045,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T23:30:00.000Z",
+          "value": 4.045,
+          "quality": "good"
         }
       ],
       "downloads": [
@@ -576,17 +1466,17 @@
         "status": "active",
         "cadence": "Actualización cada ~12 h",
         "timezone": "America/Santiago",
-        "lastUpdate": "2026-07-01T03:24:19.411Z"
+        "lastUpdate": "2026-07-04T23:36:56.164Z"
       },
       "metrics": [
         {
           "label": "Consumo hoy",
-          "value": "479.73 kWh",
+          "value": "344.23 kWh",
           "detail": "Acumulado del día"
         },
         {
           "label": "Comprado a la red hoy",
-          "value": "465.37 kWh",
+          "value": "337.01 kWh",
           "detail": "Energía importada desde la red"
         },
         {
@@ -596,12 +1486,12 @@
         },
         {
           "label": "Autoconsumo hoy",
-          "value": "14.36 kWh",
+          "value": "7.22 kWh",
           "detail": "Consumo cubierto por generación propia"
         },
         {
           "label": "Consumo del mes",
-          "value": "12435.48 kWh",
+          "value": "1593.21 kWh",
           "detail": "Acumulado mensual"
         }
       ],
@@ -840,6 +1730,206 @@
           "timestamp": "2026-07-01T03:00:00.000Z",
           "value": 6.443,
           "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T04:00:00.000Z",
+          "value": 48.279,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T04:30:00.000Z",
+          "value": 44.449,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T05:00:00.000Z",
+          "value": 45.407,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T05:30:00.000Z",
+          "value": 46.518,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T06:00:00.000Z",
+          "value": 45.964,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T06:30:00.000Z",
+          "value": 37.648,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T07:00:00.000Z",
+          "value": 6.341,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T07:30:00.000Z",
+          "value": 7.052,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T08:00:00.000Z",
+          "value": 8.092,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T08:30:00.000Z",
+          "value": 6.982,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T09:00:00.000Z",
+          "value": 7.702,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T09:30:00.000Z",
+          "value": 7.888,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T10:00:00.000Z",
+          "value": 8.184,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T10:30:00.000Z",
+          "value": 8.142,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T11:00:00.000Z",
+          "value": 7.809,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T11:30:00.000Z",
+          "value": 37.293,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T12:00:00.000Z",
+          "value": 23.081,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T12:30:00.000Z",
+          "value": 24.252,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T13:00:00.000Z",
+          "value": 47.321,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T13:30:00.000Z",
+          "value": 17.432,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T14:00:00.000Z",
+          "value": 12.953,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T14:30:00.000Z",
+          "value": 11.29,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T15:00:00.000Z",
+          "value": 9.459,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T15:30:00.000Z",
+          "value": 11.03,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T16:00:00.000Z",
+          "value": 9.745,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T16:30:00.000Z",
+          "value": 8.544,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T17:00:00.000Z",
+          "value": 9.672,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T17:30:00.000Z",
+          "value": 6.873,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T18:00:00.000Z",
+          "value": 7.569,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T18:30:00.000Z",
+          "value": 7.045,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T19:00:00.000Z",
+          "value": 7.042,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T19:30:00.000Z",
+          "value": 8.403,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T20:00:00.000Z",
+          "value": 8.842,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T20:30:00.000Z",
+          "value": 8.924,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T21:00:00.000Z",
+          "value": 6.831,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T21:30:00.000Z",
+          "value": 6.856,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T22:00:00.000Z",
+          "value": 7.572,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T22:30:00.000Z",
+          "value": 8.687,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T23:00:00.000Z",
+          "value": 20.161,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T23:30:00.000Z",
+          "value": 20.225,
+          "quality": "good"
         }
       ],
       "downloads": [
@@ -871,32 +1961,32 @@
         "status": "active",
         "cadence": "Actualización cada ~12 h",
         "timezone": "America/Santiago",
-        "lastUpdate": "2026-07-01T03:24:23.306Z"
+        "lastUpdate": "2026-07-04T23:37:00.576Z"
       },
       "metrics": [
         {
           "label": "Consumo hoy",
-          "value": "6.78 kWh",
+          "value": "1.59 kWh",
           "detail": "Acumulado del día"
         },
         {
           "label": "Comprado a la red hoy",
-          "value": "0.18 kWh",
+          "value": "0.13 kWh",
           "detail": "Energía importada desde la red"
         },
         {
           "label": "Inyectado a la red hoy",
-          "value": "39.89 kWh",
+          "value": "24.21 kWh",
           "detail": "Excedente solar exportado"
         },
         {
           "label": "Autoconsumo hoy",
-          "value": "7.810000000000002 kWh",
+          "value": "4.039999999999999 kWh",
           "detail": "Consumo cubierto por generación propia"
         },
         {
           "label": "Consumo del mes",
-          "value": "166 kWh",
+          "value": "21.02 kWh",
           "detail": "Acumulado mensual"
         }
       ],
@@ -1134,6 +2224,206 @@
         {
           "timestamp": "2026-07-01T03:00:00.000Z",
           "value": 0.199,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T04:00:00.000Z",
+          "value": 0.159,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T04:30:00.000Z",
+          "value": 0.161,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T05:00:00.000Z",
+          "value": 0.155,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T05:30:00.000Z",
+          "value": 0.158,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T06:00:00.000Z",
+          "value": 0.168,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T06:30:00.000Z",
+          "value": 0.169,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T07:00:00.000Z",
+          "value": 0.163,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T07:30:00.000Z",
+          "value": 0.143,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T08:00:00.000Z",
+          "value": 0.102,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T08:30:00.000Z",
+          "value": 0.094,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T09:00:00.000Z",
+          "value": 0.112,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T09:30:00.000Z",
+          "value": 0.096,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T10:00:00.000Z",
+          "value": 0.101,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T10:30:00.000Z",
+          "value": 0.107,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T11:00:00.000Z",
+          "value": 0.089,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T11:30:00.000Z",
+          "value": 0.093,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T12:00:00.000Z",
+          "value": 0.151,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T12:30:00.000Z",
+          "value": 0.047,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T13:00:00.000Z",
+          "value": 0.037,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T13:30:00.000Z",
+          "value": 0.044,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T14:00:00.000Z",
+          "value": 0.038,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T14:30:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T15:00:00.000Z",
+          "value": 0.048,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T15:30:00.000Z",
+          "value": 0.028,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T16:00:00.000Z",
+          "value": 0.117,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T16:30:00.000Z",
+          "value": 0.039,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T17:00:00.000Z",
+          "value": 0.039,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T17:30:00.000Z",
+          "value": 0.066,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T18:00:00.000Z",
+          "value": 0.036,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T18:30:00.000Z",
+          "value": 0.047,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T19:00:00.000Z",
+          "value": 0.139,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T19:30:00.000Z",
+          "value": 0.047,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T20:00:00.000Z",
+          "value": 0,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T20:30:00.000Z",
+          "value": 0.049,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T21:00:00.000Z",
+          "value": 0.141,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T21:30:00.000Z",
+          "value": 0.049,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T22:00:00.000Z",
+          "value": 0.137,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T22:30:00.000Z",
+          "value": 0.095,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T23:00:00.000Z",
+          "value": 0.092,
+          "quality": "good"
+        },
+        {
+          "timestamp": "2026-07-04T23:30:00.000Z",
+          "value": 0.088,
           "quality": "good"
         }
       ],

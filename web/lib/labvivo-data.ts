@@ -26,7 +26,6 @@ function readLocalSolarDatasets(): OpenDataDataset[] | null {
   }
 }
 
-const PLACEHOLDER_PHOTO = "/assets/photos/andres_villela_v2.png";
 const PLACEHOLDER_IMAGE = "/assets/photos/experiencia_img.png";
 
 const FALLBACK_PEOPLE: Person[] = [
@@ -36,7 +35,7 @@ const FALLBACK_PEOPLE: Person[] = [
     name: "Andres Villela",
     role: "Profesor de la Escuela de Diseno UC",
     bio: "the goat.",
-    photoUrl: PLACEHOLDER_PHOTO,
+    photoUrl: "/assets/photos/andres_villela_v2.png",
     social: {
       email: "andres.villela@uc.cl",
       linkedin: "https://www.linkedin.com/in/andres-villela-chacon-27b15a30/",
@@ -98,7 +97,6 @@ const FALLBACK_PEOPLE: Person[] = [
     name: "Leoncio Cabrera",
     role: "Academica asociada - Arquitectura",
     bio: "Acompana desafios de energia, habitabilidad y urbanismo regenerativo.",
-    photoUrl: PLACEHOLDER_PHOTO,
     social: {
       email: "valentina.riquelme@uc.cl",
       linkedin: "https://www.linkedin.com/in/leoncio-cabrera-castro-930b19121/",
@@ -110,7 +108,6 @@ const FALLBACK_PEOPLE: Person[] = [
     name: "Rodrigo Carrasco",
     role: "Academico asociado - Ingenieria",
     bio: "Disena pilotos de residuos y movilidad con seguimiento de impacto.",
-    photoUrl: PLACEHOLDER_PHOTO,
     social: {
       email: "nicolas.becerra@uc.cl",
       linkedin: "https://www.linkedin.com/in/rodrigocarrasco/",
@@ -122,7 +119,6 @@ const FALLBACK_PEOPLE: Person[] = [
     name: "José Miguel Cardemil",
     role: "Academica asociada - Ecologia",
     bio: "Vincula investigacion de biodiversidad con cursos y tesis en campus.",
-    photoUrl: PLACEHOLDER_PHOTO,
     social: {
       email: "marta.olivares@uc.cl",
       linkedin: "https://www.linkedin.com/in/josé-m-cardemil-11991642/?locale=es",
@@ -134,7 +130,6 @@ const FALLBACK_PEOPLE: Person[] = [
     name: "Patricia Galilea",
     role: "Academico asociado - Diseno estrategico",
     bio: "Facilita codiseno con estudiantes y actores comunitarios.",
-    photoUrl: PLACEHOLDER_PHOTO,
     social: {
       email: "javier.cifuentes@uc.cl",
       linkedin: "https://www.linkedin.com/in/paty-galilea/",
