@@ -30,22 +30,10 @@ const PLACEHOLDER_IMAGE = "/assets/photos/experiencia_img.png";
 
 const FALLBACK_PEOPLE: Person[] = [
   {
-    id: "exec-1",
-    group: "executive",
-    name: "Andres Villela",
-    role: "Profesor de la Escuela de Diseno UC",
-    bio: "the goat.",
-    photoUrl: "/assets/photos/andres_villela_v2.png",
-    social: {
-      email: "andres.villela@uc.cl",
-      linkedin: "https://www.linkedin.com/in/andres-villela-chacon-27b15a30/",
-    },
-  },
-  {
     id: "exec-2",
     group: "executive",
     name: "Enzo Loiza",
-    role: "Coordinacion de proyectos de innovacion",
+    role: "Lider de proyecto",
     bio: "Lidera la articulacion de experiencias docentes en territorio y campus vivo.",
     photoUrl: "/assets/photos/enzoloiz.jpeg",
     social: {
@@ -54,22 +42,10 @@ const FALLBACK_PEOPLE: Person[] = [
     },
   },
   {
-    id: "exec-3",
-    group: "executive",
-    name: "Catalina Ortega",
-    role: "Investigacion aplicada y datos abiertos",
-    bio: "Impulsa el uso de repositorios abiertos para desafios interdisciplinarios.",
-    photoUrl: "/assets/photos/catort.jpeg",
-    social: {
-      email: "TODO@uc.cl",
-      linkedin: "https://www.linkedin.com/in/cortegacalderon/",
-    },
-  },
-  {
     id: "exec-4",
     group: "executive",
     name: "Esteban Beros",
-    role: "Estudiante de Ingenieria UC",
+    role: "Desarrollador",
     bio: "Desarrollador de la plataforma CampusLab UC y colaborador en su implementacion tecnica.",
     photoUrl: "/assets/photos/teb.png",
     social: {
@@ -82,7 +58,7 @@ const FALLBACK_PEOPLE: Person[] = [
     id: "exec-5",
     group: "executive",
     name: "Arturo Herreros",
-    role: "Estudiante de Ingenieria UC",
+    role: "Desarrollador",
     bio: "Desarrollador de la plataforma CampusLab UC y colaborador en su arquitectura de frontend.",
     photoUrl: "/assets/photos/arturo.png",
     social: {
@@ -95,8 +71,9 @@ const FALLBACK_PEOPLE: Person[] = [
     id: "academic-1",
     group: "academic",
     name: "Leoncio Cabrera",
-    role: "Academica asociada - Arquitectura",
+    role: "Academico asociada - Ingeniería",
     bio: "Acompana desafios de energia, habitabilidad y urbanismo regenerativo.",
+    photoUrl: "/assets/photos/leoncio.png",
     social: {
       email: "valentina.riquelme@uc.cl",
       linkedin: "https://www.linkedin.com/in/leoncio-cabrera-castro-930b19121/",
@@ -104,10 +81,11 @@ const FALLBACK_PEOPLE: Person[] = [
   },
   {
     id: "academic-2",
-    group: "academic",
+    group: "advisor",
     name: "Rodrigo Carrasco",
     role: "Academico asociado - Ingenieria",
     bio: "Disena pilotos de residuos y movilidad con seguimiento de impacto.",
+    photoUrl: "/assets/photos/rcarrasco.png",
     social: {
       email: "nicolas.becerra@uc.cl",
       linkedin: "https://www.linkedin.com/in/rodrigocarrasco/",
@@ -117,8 +95,9 @@ const FALLBACK_PEOPLE: Person[] = [
     id: "academic-3",
     group: "academic",
     name: "José Miguel Cardemil",
-    role: "Academica asociada - Ecologia",
+    role: "Academico asociada - Ingeniería",
     bio: "Vincula investigacion de biodiversidad con cursos y tesis en campus.",
+    photoUrl: "/assets/photos/jmcardemil.jpg",
     social: {
       email: "marta.olivares@uc.cl",
       linkedin: "https://www.linkedin.com/in/josé-m-cardemil-11991642/?locale=es",
@@ -126,10 +105,11 @@ const FALLBACK_PEOPLE: Person[] = [
   },
   {
     id: "academic-4",
-    group: "academic",
+    group: "advisor",
     name: "Patricia Galilea",
-    role: "Academico asociado - Diseno estrategico",
+    role: "Academica asociado - Ingeniería",
     bio: "Facilita codiseno con estudiantes y actores comunitarios.",
+    photoUrl: "/assets/photos/pgalilea.jpg",
     social: {
       email: "javier.cifuentes@uc.cl",
       linkedin: "https://www.linkedin.com/in/paty-galilea/",

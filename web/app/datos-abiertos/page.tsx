@@ -63,15 +63,8 @@ export default async function DatosAbiertosPage({
         </div>
       </section>
 
-      <section className="s s--white" style={{ paddingBottom: 32 }}>
+      <section className="s s--cream">
         <div className="wrap">
-          <p className="overline" style={{ color: "var(--or)", marginBottom: 12 }}>Catálogo</p>
-          <h2 className="sh sh--tD" style={{ marginBottom: 8 }}>Buscar y filtrar</h2>
-          <p className="body" style={{ marginBottom: 24, maxWidth: 500 }}>
-            Mostrando {filtered.length} de {datasets.length} dataset
-            {datasets.length !== 1 ? "s" : ""}
-            {hasFilters ? " filtrados" : ""}.
-          </p>
           <form className="filters" method="get" action="/datos-abiertos">
             <div className="fg">
               <label htmlFor="ds-search">Buscador de texto</label>
@@ -97,11 +90,7 @@ export default async function DatosAbiertosPage({
               <Link href="/datos-abiertos" className="btn btn--outline">Limpiar</Link>
             )}
           </form>
-        </div>
-      </section>
 
-      <section className="s s--cream" style={{ paddingTop: 32 }}>
-        <div className="wrap">
           {filtered.length > 0 ? (
             <div className="ds-grid">
               {filtered.map((dataset) => (

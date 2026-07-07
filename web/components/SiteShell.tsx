@@ -57,9 +57,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
             <div>
               <div className="footer__brand-name">CampusLab UC</div>
               <p className="footer__brand-desc">
-                Red interdisciplinaria que impulsa experiencias de aprendizaje y colaboración desde
-                los campus UC. Conectamos academia, estudiantes, comunidades y actores externos para
-                diseñar soluciones sostenibles.
+                Plataforma de investigación e innovación que usa entornos reales como campo de estudio, involucrando a sus propios usuarios como co-creadores de soluciones.
               </p>
             </div>
             <div>
@@ -76,13 +74,13 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
               <div className="footer__col-title">Contacto</div>
               <ul className="footer__links">
                 <li><a href="mailto:campuslab.ing@uc.cl">campuslab.ing@uc.cl</a></li>
-                <li><span>Escuela de Diseño UC</span></li>
-                <li><span>Avda. Vicuña Mackenna 4860</span></li>
+                <li><span>Escuela de Ingeniería UC</span></li>
+                <li><span>Avda. Vicuña Mackenna 4860, Macul</span></li>
               </ul>
             </div>
           </div>
           <div className="footer__bottom">
-            <span className="footer__copy">© 2025 Pontificia Universidad Católica de Chile</span>
+            <span className="footer__copy">© 2026 Pontificia Universidad Católica de Chile</span>
             <span className="footer__copy">CampusLab UC</span>
           </div>
         </div>

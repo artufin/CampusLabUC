@@ -5,8 +5,9 @@ import { SiteShell } from "@/components/SiteShell";
 import { getAssociatedMembers, getPeopleByGroup } from "@/lib/labvivo-data";
 
 export default async function NosotrosPage() {
-  const [executivePeople, associatedMembers] = await Promise.all([
+  const [executivePeople, advisorPeople, associatedMembers] = await Promise.all([
     getPeopleByGroup("executive"),
+    getPeopleByGroup("advisor"),
     getAssociatedMembers(),
   ]);
 
@@ -16,9 +17,7 @@ export default async function NosotrosPage() {
         <div className="wrap">
           <h1 className="phero__h1">Nosotros</h1>
           <p className="phero__desc">
-            Somos una red interdisciplinaria que impulsa experiencias de aprendizaje y colaboración
-            desde los campus UC. Conectamos academia, estudiantes, comunidades y actores externos
-            para diseñar soluciones sostenibles con evidencia y acción concreta.
+            Conoce nuestro equipo, misión y comunidad de miembros asociados que hacen posible la iniciativa CampusLab UC.
           </p>
         </div>
       </section>
@@ -68,13 +67,34 @@ export default async function NosotrosPage() {
         </div>
       </section>
 
+      {/* Profesores asesores */}
+      <section className="s s--white">
+        <div className="wrap">
+          <h2 className="sh sh--tD" style={{ marginBottom: 12 }}>Profesores Asesores</h2>
+          <p className="body" style={{ marginBottom: 48, maxWidth: 600 }}>
+            Académicos que guían y asesoran el desarrollo de la plataforma y sus proyectos.
+          </p>
+          {advisorPeople.length > 0 ? (
+            <div className="g3">
+              {advisorPeople.map((person) => (
+                <PersonCard key={person.id} person={person} />
+              ))}
+            </div>
+          ) : (
+            <EmptyState
+              title="No hay profesores asesores disponibles"
+              description="Los perfiles se cargarán de forma automática cuando el endpoint de personas quede habilitado."
+            />
+          )}
+        </div>
+      </section>
+
       {/* Miembros asociados */}
-      <section className="s s--white s--pb100">
+      <section className="s s--cream s--pb100">
         <div className="wrap">
           <h2 className="sh sh--tD" style={{ marginBottom: 12 }}>Miembros eméritos</h2>
           <p className="body" style={{ marginBottom: 36, maxWidth: 560 }}>
-            Comunidad amplia de estudiantes, profesores y colaboradores que participan en los
-            proyectos del Campus Lab.
+            Comunidad amplia de estudiantes, profesores y colaboradores que han participado en proyectos y versiones anteriores de CampusLab.
           </p>
           {associatedMembers.length > 0 ? (
             <div className="members">

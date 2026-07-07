@@ -31,7 +31,7 @@
       "metrics": [
         {
           "label": "Potencia actual",
-          "value": "0 kW",
+          "value": "0.555 kW",
           "detail": "Lectura más reciente"
         },
         {
@@ -351,7 +351,7 @@
       "metrics": [
         {
           "label": "Potencia actual",
-          "value": "0 kW",
+          "value": "1.274 kW",
           "detail": "Lectura más reciente"
         },
         {
@@ -666,7 +666,7 @@
       "metrics": [
         {
           "label": "Potencia actual",
-          "value": "0 kW",
+          "value": "4.339 kW",
           "detail": "Lectura más reciente"
         },
         {

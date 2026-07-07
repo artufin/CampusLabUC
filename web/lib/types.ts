@@ -1,4 +1,4 @@
-export type PersonGroup = "executive" | "academic";
+export type PersonGroup = "executive" | "academic" | "advisor";
 
 export interface SocialLinks {
   email?: string;

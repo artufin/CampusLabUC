@@ -34,7 +34,7 @@ export function LatestExperiencesCarousel({ items }: LatestExperiencesCarouselPr
         <div className="carousel">
           <button
             type="button"
-            className="carousel__btn"
+            className="carousel__btn carousel__btn--prev"
             aria-label="Experiencia anterior"
             onClick={() => scrollByCard(-1)}
           >
@@ -54,7 +54,7 @@ export function LatestExperiencesCarousel({ items }: LatestExperiencesCarouselPr
           </div>
           <button
             type="button"
-            className="carousel__btn"
+            className="carousel__btn carousel__btn--next"
             aria-label="Siguiente experiencia"
             onClick={() => scrollByCard(1)}
           >

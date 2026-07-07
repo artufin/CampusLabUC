@@ -76,7 +76,6 @@ export default async function OportunidadesPage({
         labelOptions={labelOptions}
         filters={filters}
         pagination={{ page, total, totalPages, pageSize }}
-        subtitle="Usa el buscador para localizar una oportunidad y combina los filtros."
       />
     </SiteShell>
   );

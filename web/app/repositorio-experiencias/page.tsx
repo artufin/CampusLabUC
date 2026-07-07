@@ -85,16 +85,8 @@ export default async function RepositorioExperienciasPage({
         </div>
       </section>
 
-      <section className="s s--white" style={{ paddingBottom: 32 }}>
+      <section className="s s--cream">
         <div className="wrap">
-          <p className="overline" style={{ color: "var(--or)", marginBottom: 12 }}>
-            Repositorio de proyectos
-          </p>
-          <h2 className="sh sh--tD" style={{ marginBottom: 8 }}>Buscar y filtrar</h2>
-          <p className="body" style={{ marginBottom: 24, maxWidth: 500 }}>
-            Mostrando {paginated.length} de {total} proyecto{total !== 1 ? "s" : ""}
-            {hasFilters ? " filtrados" : ""}.
-          </p>
           <form className="filters" method="get" action="/repositorio-experiencias">
             <input type="hidden" name="page" value="1" />
             <div className="fg">
@@ -136,11 +128,7 @@ export default async function RepositorioExperienciasPage({
               </Link>
             )}
           </form>
-        </div>
-      </section>
 
-      <section className="s s--cream" style={{ paddingTop: 32 }}>
-        <div className="wrap">
           {paginated.length > 0 ? (
             paginated.map((project) => (
               <ProjectCard key={project.id} project={project} />
