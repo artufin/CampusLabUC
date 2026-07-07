@@ -29,7 +29,12 @@ function getMailHref(email?: string): string | undefined {
 
 export function PersonCard({ person }: { person: Person }) {
   const socials = [
-    person.social.instagram && {
+    person.group === "executive" && person.social.github && {
+      href: person.social.github,
+      label: "GitHub",
+      icon: "/assets/icons/github.svg",
+    },
+    person.group === "executive" && person.social.instagram && {
       href: person.social.instagram,
       label: "Instagram",
       icon: "/assets/icons/instagram.svg",
@@ -48,8 +53,21 @@ export function PersonCard({ person }: { person: Person }) {
 
   return (
     <div className="ac-card" tabIndex={0}>
-      <div className="ac-card__top" style={{ background: getCardBg(person.name) }}>
-        <div className="ac-card__ini">{getInitials(person.name)}</div>
+      <div
+        className="ac-card__top"
+        style={person.photoUrl ? undefined : { background: getCardBg(person.name) }}
+      >
+        {person.photoUrl ? (
+          <Image
+            src={person.photoUrl}
+            alt={person.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="ac-card__photo"
+          />
+        ) : (
+          <div className="ac-card__ini">{getInitials(person.name)}</div>
+        )}
       </div>
       <div className="ac-card__body">
         <div className="ac-card__name">{person.name}</div>

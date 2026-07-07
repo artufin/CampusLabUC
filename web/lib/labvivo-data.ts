@@ -10,183 +10,134 @@ import {
   type Project,
   type Sponsor,
 } from "@/lib/types";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_LABVIVO_API_URL;
+const SOLAR_DATA_PATH = path.join(process.cwd(), "data", "solar-plants.json");
 
-const PLACEHOLDER_PHOTO = "/assets/photos/andres_villela_v2.png";
+function readLocalSolarDatasets(): OpenDataDataset[] | null {
+  try {
+    const raw = readFileSync(SOLAR_DATA_PATH, "utf-8");
+    const parsed = JSON.parse(raw) as { generatedAt: string; datasets: OpenDataDataset[] };
+    return parsed.datasets.length > 0 ? parsed.datasets : null;
+  } catch {
+    return null;
+  }
+}
+
 const PLACEHOLDER_IMAGE = "/assets/photos/experiencia_img.png";
 
 const FALLBACK_PEOPLE: Person[] = [
   {
-    id: "exec-1",
-    group: "executive",
-    name: "Andres Villela",
-    role: "Profesor de la Escuela de Diseno UC",
-    bio: "the goat.",
-    photoUrl: PLACEHOLDER_PHOTO,
-    social: {
-      email: "andres.villela@uc.cl",
-      instagram: "https://instagram.com/labsvivosuc",
-      linkedin: "https://linkedin.com",
-    },
-  },
-  {
     id: "exec-2",
     group: "executive",
     name: "Enzo Loiza",
-    role: "Coordinacion de proyectos de innovacion",
+    role: "Lider de proyecto",
     bio: "Lidera la articulacion de experiencias docentes en territorio y campus vivo.",
     photoUrl: "/assets/photos/enzoloiz.jpeg",
     social: {
       email: "TODO@uc.cl",
-      instagram: "https://instagram.com/TODO",
-      linkedin: "https://linkedin.com/in/TODO",
-    },
-  },
-  {
-    id: "exec-3",
-    group: "executive",
-    name: "Catalina Ortega",
-    role: "Investigacion aplicada y datos abiertos",
-    bio: "Impulsa el uso de repositorios abiertos para desafios interdisciplinarios.",
-    photoUrl: "/assets/photos/catort.jpeg",
-    social: {
-      email: "TODO@uc.cl",
-      instagram: "https://instagram.com/TODO",
-      linkedin: "https://linkedin.com/in/TODO",
+      linkedin: "https://www.linkedin.com/in/enzo-loiza-bastias/",
     },
   },
   {
     id: "exec-4",
     group: "executive",
     name: "Esteban Beros",
-    role: "Estudiante de Ingenieria UC",
+    role: "Desarrollador",
     bio: "Desarrollador de la plataforma CampusLab UC y colaborador en su implementacion tecnica.",
     photoUrl: "/assets/photos/teb.png",
     social: {
       email: "TODO@uc.cl",
-      instagram: "https://instagram.com/TODO",
-      linkedin: "https://linkedin.com/in/TODO",
+      linkedin: "https://www.linkedin.com/in/eberos/",
+      github: "https://github.com/tebi01",
     },
   },
   {
     id: "exec-5",
     group: "executive",
     name: "Arturo Herreros",
-    role: "Estudiante de Ingenieria UC",
+    role: "Desarrollador",
     bio: "Desarrollador de la plataforma CampusLab UC y colaborador en su arquitectura de frontend.",
     photoUrl: "/assets/photos/arturo.png",
     social: {
       email: "TODO@uc.cl",
-      instagram: "https://instagram.com/TODO",
-      linkedin: "https://linkedin.com/in/TODO",
+      linkedin: "https://www.linkedin.com/in/arturo-herreros/",
+      github: "https://github.com/artufin",
     },
   },
   {
     id: "academic-1",
     group: "academic",
-    name: "Valentina Riquelme",
-    role: "Academica asociada - Arquitectura",
+    name: "Leoncio Cabrera",
+    role: "Academico asociada - Ingeniería",
     bio: "Acompana desafios de energia, habitabilidad y urbanismo regenerativo.",
-    photoUrl: PLACEHOLDER_PHOTO,
+    photoUrl: "/assets/photos/leoncio.png",
     social: {
       email: "valentina.riquelme@uc.cl",
-      instagram: "https://instagram.com/labsvivosuc",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/leoncio-cabrera-castro-930b19121/",
     },
   },
   {
     id: "academic-2",
-    group: "academic",
-    name: "Nicolas Becerra",
+    group: "advisor",
+    name: "Rodrigo Carrasco",
     role: "Academico asociado - Ingenieria",
     bio: "Disena pilotos de residuos y movilidad con seguimiento de impacto.",
-    photoUrl: PLACEHOLDER_PHOTO,
+    photoUrl: "/assets/photos/rcarrasco.png",
     social: {
       email: "nicolas.becerra@uc.cl",
-      instagram: "https://instagram.com/labsvivosuc",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/rodrigocarrasco/",
     },
   },
   {
     id: "academic-3",
     group: "academic",
-    name: "Marta Olivares",
-    role: "Academica asociada - Ecologia",
+    name: "José Miguel Cardemil",
+    role: "Academico asociada - Ingeniería",
     bio: "Vincula investigacion de biodiversidad con cursos y tesis en campus.",
-    photoUrl: PLACEHOLDER_PHOTO,
+    photoUrl: "/assets/photos/jmcardemil.jpg",
     social: {
       email: "marta.olivares@uc.cl",
-      instagram: "https://instagram.com/labsvivosuc",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/josé-m-cardemil-11991642/?locale=es",
     },
   },
   {
     id: "academic-4",
-    group: "academic",
-    name: "Javier Cifuentes",
-    role: "Academico asociado - Diseno estrategico",
+    group: "advisor",
+    name: "Patricia Galilea",
+    role: "Academica asociado - Ingeniería",
     bio: "Facilita codiseno con estudiantes y actores comunitarios.",
-    photoUrl: PLACEHOLDER_PHOTO,
+    photoUrl: "/assets/photos/pgalilea.jpg",
     social: {
       email: "javier.cifuentes@uc.cl",
-      instagram: "https://instagram.com/labsvivosuc",
-      linkedin: "https://linkedin.com",
-    },
-  },
-  {
-    id: "academic-5",
-    group: "academic",
-    name: "Daniela Saldias",
-    role: "Academica asociada - Politicas publicas",
-    bio: "Conecta evidencias territoriales con estrategias de escalamiento.",
-    photoUrl: PLACEHOLDER_PHOTO,
-    social: {
-      email: "daniela.saldias@uc.cl",
-      instagram: "https://instagram.com/labsvivosuc",
-      linkedin: "https://linkedin.com",
-    },
-  },
-  {
-    id: "academic-6",
-    group: "academic",
-    name: "Felipe Jara",
-    role: "Academico asociado - Ciencias de datos",
-    bio: "Desarrolla visualizaciones para seguimiento de oportunidades y resultados.",
-    photoUrl: PLACEHOLDER_PHOTO,
-    social: {
-      email: "felipe.jara@uc.cl",
-      instagram: "https://instagram.com/labsvivosuc",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/paty-galilea/",
     },
   },
 ];
 
 const FALLBACK_ASSOCIATED_MEMBERS = [
-  "Andres Villela Chacon",
-  "Anais Weil",
-  "Maria Jose Quiroga",
-  "Benjamin Lagos",
-  "Patricia Toledo",
-  "Josefina Mella",
-  "Francisca Luna",
-  "Vicente Ramirez",
-  "Constanza Pino",
-  "Alonso Yanez",
-  "Pilar Espinoza",
-  "Martin Bustamante",
-  "Fernanda Rojas",
-  "Diego Mulet",
-  "Camila Arriagada",
-  "Manuel Cortes",
-  "Ignacia Solis",
-  "Rocio Pavez",
-  "Lukas Cifuentes",
-  "Carolina Vergara",
-  "Tomas Caceres",
-  "Julieta Gaete",
-  "Matias Fierro",
-  "Antonia Palma",
+  "Prof. Luis Cifuentes", 
+  "Vicente Iglesias", 
+  "Javiera Escudero", 
+  "Angel Ortiz", 
+  "Benjamín Fuentemivida", 
+  "Catalina Arce", 
+  "María José Araya", 
+  "Dominique del Castillo", 
+  "Catalina Figueroa", 
+  "Gian Jara", 
+  "María José Marzá", 
+  "Camille Olguín", 
+  "Itzae Flores", 
+  "Maximiliano Frey", 
+  "Ignacio Godoy", 
+  "Francisco E. Parulla", 
+  "Javier Arriagada", 
+  "Josefa Casado",
+  "Denise Salinas",
+  "Catalina Ortega"
 ];
 
 const FALLBACK_EXPERIENCES: Experience[] = [
@@ -825,10 +776,16 @@ export async function getOpenDataEntries(): Promise<OpenDataEntry[]> {
 
 export async function getOpenDataDatasets(): Promise<OpenDataDataset[]> {
   const apiDatasets = await getFromApi<OpenDataDataset[]>('/open-data/datasets');
+  if (apiDatasets && apiDatasets.length > 0) {
+    return apiDatasets;
+  }
 
-  return apiDatasets && apiDatasets.length > 0
-    ? apiDatasets
-    : FALLBACK_OPEN_DATA_DATASETS;
+  const localSolarDatasets = readLocalSolarDatasets();
+  if (localSolarDatasets) {
+    return [...localSolarDatasets, ...FALLBACK_OPEN_DATA_DATASETS];
+  }
+
+  return FALLBACK_OPEN_DATA_DATASETS;
 }
 
 export async function getOpenDataDatasetById(

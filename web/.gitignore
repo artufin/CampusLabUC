@@ -32,9 +32,13 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
+
+# solar scraper session cookies (secrets-adjacent, never commit)
+scripts/solar-scraper/storage-state/
 
 # typescript
 *.tsbuildinfo

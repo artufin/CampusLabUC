@@ -47,9 +47,33 @@ export default async function Home() {
                 externos, en torno a la sustentabilidad e innovación social.
               </p>
               <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                <span className="tag">Datos ecológicamente válidos</span>
-                <span className="tag">Comportamientos auténticos</span>
-                <span className="tag">Adopción real</span>
+                <span className="tag-tip" tabIndex={0}>
+                  <span className="tag">Datos ecológicamente válidos</span>
+                  <span className="tag-tip__box">
+                    Los datos provienen de contextos reales, no de laboratorios controlados.
+                  </span>
+                </span>
+                <span className="tag-tip" tabIndex={0}>
+                  <span className="tag">Comportamientos auténticos</span>
+                  <span className="tag-tip__box">
+                    Los usuarios no simulan; sus acciones reflejan la complejidad cotidiana.
+                  </span>
+                </span>
+              </div>
+              <div style={{ display: "flex", gap: 10, flexWrap: "wrap", paddingTop: 7 }}>
+                <span className="tag-tip" tabIndex={0}>
+                  <span className="tag">Adopción real</span>
+                  <span className="tag-tip__box">
+                    Las soluciones se prueban contra la vida real, aumentando su probabilidad de
+                    éxito.
+                  </span>
+                </span>
+                <span className="tag-tip" tabIndex={0}>
+                  <span className="tag">Laboratorio vivo</span>
+                  <span className="tag-tip__box">
+                    Parte fundamental del Plan Estratégico UC 2026-2030.
+                  </span>
+                </span>
               </div>
             </div>
           </div>
@@ -63,7 +87,7 @@ export default async function Home() {
             ¿Qué buscamos?
           </p>
           <h2 className="sh" style={{ marginBottom: 48 }}>Objetivos</h2>
-          <div className="g3">
+          <div className="g3 g3--objetivos-bg">
             <div className="obj-card">
               <div className="obj-card__n">01</div>
               <p className="obj-card__t">
@@ -113,9 +137,9 @@ export default async function Home() {
       <section className="s s--white">
         <div className="wrap">
           <p className="overline" style={{ color: "var(--t)", marginBottom: 12 }}>
-            Metodología
+            Cómo lo hacemos
           </p>
-          <h2 className="sh" style={{ marginBottom: 48 }}>Cómo lo hacemos</h2>
+          <h2 className="sh" style={{ marginBottom: 48 }}>Metodología</h2>
           <div className="g3">
             <div className="obj-card">
               <div className="obj-card__n">01</div>
@@ -195,7 +219,7 @@ export default async function Home() {
       {/* Académicos asociados */}
       <section className="s s--white">
         <div className="wrap">
-          <h2 className="sh sh--tD" style={{ marginBottom: 48 }}>Académicos asociados</h2>
+          <h2 className="sh sh--tD" style={{ marginBottom: 48 }}>Académicos participantes</h2>
           {academicPeople.length > 0 ? (
             <div className="g3">
               {academicPeople.map((person) => (
