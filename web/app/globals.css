@@ -46,14 +46,14 @@ h1, h2, h3 { font-family: var(--serif); }
 .s--slim  { padding-top: 3.25rem; padding-bottom: 3.25rem; }
 .s--pb100 { padding-bottom: 6.25rem; }
 
-.g3--objetivos-bg {
-  background:
-    linear-gradient(rgba(197, 225, 229, .55), rgba(197, 225, 229, .55)),
-    url("/assets/background/campussanjoaquin.jpg") center / cover no-repeat;
-  padding: 1rem;
-  margin: -1rem;
-  border-radius: 0.875rem;
+/* Fixed campus background, visible through the semi-transparent sections placed inside it */
+.home-bg-fixed {
+  position: relative;
+  background: url("/assets/background/campussanjoaquin.jpg") center / cover fixed no-repeat;
 }
+.home-bg-fixed .s--white { background: rgba(255, 255, 255, .96); }
+.home-bg-fixed .s--cream { background: rgba(250, 246, 237, .96); }
+.home-bg-fixed .s--tL    { background: rgba(197, 225, 229, .96); }
 
 /* ─── Grids ─── */
 .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
@@ -340,6 +340,7 @@ h1, h2, h3 { font-family: var(--serif); }
 .dataset-chart-figure  { display: grid; gap: 0.75rem; }
 .dataset-chart-figure svg { width: 100%; height: auto; display: block; }
 .dataset-chart-grid    { stroke: rgba(2,110,110,.12); stroke-width: 1; }
+.dataset-chart-ylabel  { font-family: var(--sans); font-size: 11px; fill: var(--tm); }
 .dataset-chart-area    { stroke: none; }
 .dataset-chart-line    { fill: none; stroke: var(--t); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .dataset-chart-point   { fill: #fff; stroke: var(--t); stroke-width: 2.5; }

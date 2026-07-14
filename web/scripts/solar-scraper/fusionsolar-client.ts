@@ -14,12 +14,20 @@
 //
 // - Direct calls to these endpoints via a raw `context.request` (or even
 //   `fetch()` executed inside the page via `page.evaluate`) are REJECTED —
-//   the response is an HTML error page, not JSON. FusionSolar requires a
-//   `roarand` anti-CSRF header that's injected by the SPA's own bundled
-//   request-wrapper, not reproducible from outside the page's real click/nav
-//   flow. The robust approach is to let the actual page fire its own
-//   requests via real navigation and capture the response with
-//   `page.waitForResponse()` — never to replay requests manually.
+//   the response is an HTML error page, not JSON — UNLESS the request carries
+//   a valid `roarand` anti-CSRF header. That header is injected by the SPA's
+//   own bundled request-wrapper and isn't computable from outside it, but it
+//   IS just a session-scoped token: once you've captured it off ONE real
+//   request fired by the page (via `response.request().allHeaders()`), it can
+//   be reused verbatim across further manual `context.request.get()` calls in
+//   that same browser context — confirmed live by replaying the
+//   `energy-balance` call with a different `queryTime`/`dateStr` and the same
+//   `roarand` and getting a genuine 200 with that day's data. So: the FIRST
+//   request of each kind still has to come from a real page navigation (to
+//   mint the token), but follow-up variations of that same request (e.g.
+//   walking `energy-balance` backwards over several days for a week of
+//   history) don't need additional navigations or UI interaction — see
+//   `fetchHistoricalEnergyBalance` below.
 //
 // - Navigating a FRESH page directly to `#/view/station/{dn}/overview` (using
 //   the `dn` from station-list) fires a GET to
@@ -56,6 +64,17 @@
 //     `browser.newContext()` below pins `timezoneId: "America/Santiago"` so
 //     the SPA always computes the correct real-world offset for the plants'
 //     actual location, regardless of where the scraper physically runs.
+//
+// - `energy-balance` also takes `queryTime` (local midnight of the requested
+//   day, as epoch ms) and a matching `dateStr` — verified live: decrementing
+//   both by 24h and replaying the request (same `roarand`, see above) returns
+//   that earlier day's `productPower`/`usePower`/`xAxis`, not a repeat of
+//   today. `fetchHistoricalEnergyBalance` walks this back `HISTORY_DAYS` more
+//   days past the one the initial navigation already fetched, so each scrape
+//   run comes back with a full week of curve data instead of just today's.
+//   `station-detail`'s `realtimePower` has no equivalent date param (or none
+//   found so far), so today's generation curve still comes from there as
+//   before — only the historical days route through `energy-balance`.
 
 import { chromium, type Browser, type BrowserContext } from "playwright";
 import { existsSync } from "node:fs";
@@ -102,6 +121,101 @@ const CURVE_SAMPLE_STRIDE = 6;
 
 function downsample<T>(points: T[], stride: number): T[] {
   return stride <= 1 ? points : points.filter((_, i) => i % stride === 0);
+}
+
+/** How many days before "today" to additionally fetch — 6 + today = a full week. */
+const HISTORY_DAYS = 6;
+
+interface EnergyBalanceCurves {
+  generation: Array<{ timestamp: string; value: number }>;
+  consumption: Array<{ timestamp: string; value: number }>;
+}
+
+/** Parses one `energy-balance` response body's parallel curve arrays into timestamped points. */
+function parseEnergyBalanceCurves(
+  data: { xAxis?: string[]; productPower?: string[]; usePower?: string[] },
+  offsetHours: number,
+): EnergyBalanceCurves {
+  const xAxis = data.xAxis ?? [];
+  const productPower = data.productPower ?? [];
+  const usePower = data.usePower ?? [];
+  const now = Date.now();
+
+  const points = xAxis
+    .map((label, i) => ({
+      timestamp: parseLocalDateTime(label, offsetHours),
+      generationValue: toNumber(productPower[i]) ?? 0,
+      consumptionValue: toNumber(usePower[i]) ?? 0,
+    }))
+    .filter((point) => new Date(point.timestamp).getTime() <= now)
+    .sort((a, b) => a.timestamp.localeCompare(b.timestamp));
+
+  return {
+    generation: downsample(
+      points.map((p) => ({ timestamp: p.timestamp, value: p.generationValue })),
+      CURVE_SAMPLE_STRIDE,
+    ),
+    consumption: downsample(
+      points.map((p) => ({ timestamp: p.timestamp, value: p.consumptionValue })),
+      CURVE_SAMPLE_STRIDE,
+    ),
+  };
+}
+
+/**
+ * Replays `energy-balance` for the `HISTORY_DAYS` days before the one the initial
+ * navigation already covered, reusing that request's `roarand` header (see the
+ * recon notes at the top of this file for why that's safe) instead of navigating
+ * the page again per day.
+ */
+async function fetchHistoricalEnergyBalance(
+  context: BrowserContext,
+  todayRequestUrl: string,
+  roarand: string,
+  referer: string,
+  offsetHours: number,
+): Promise<EnergyBalanceCurves> {
+  const generation: EnergyBalanceCurves["generation"] = [];
+  const consumption: EnergyBalanceCurves["consumption"] = [];
+  const oneDayMs = 24 * 60 * 60 * 1000;
+  const url = new URL(todayRequestUrl);
+  const todayQueryTime = Number(url.searchParams.get("queryTime"));
+
+  for (let offset = 1; offset <= HISTORY_DAYS; offset++) {
+    const queryTime = todayQueryTime - offset * oneDayMs;
+    const d = new Date(queryTime);
+    const dateStr =
+      `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}-` +
+      `${String(d.getUTCDate()).padStart(2, "0")} 00:00:00`;
+    url.searchParams.set("queryTime", String(queryTime));
+    url.searchParams.set("dateStr", dateStr);
+    url.searchParams.set("_", String(Date.now()));
+
+    try {
+      const response = await context.request.get(url.toString(), {
+        headers: {
+          roarand,
+          accept: "application/json, text/javascript, */*; q=0.01",
+          "x-requested-with": "XMLHttpRequest",
+          referer,
+        },
+      });
+      if (!response.ok()) {
+        console.warn(
+          `[solar-scraper] historical energy-balance request failed (day -${offset}): HTTP ${response.status()}`,
+        );
+        continue;
+      }
+      const json = await response.json();
+      const curves = parseEnergyBalanceCurves(json.data ?? {}, offsetHours);
+      generation.push(...curves.generation);
+      consumption.push(...curves.consumption);
+    } catch (err) {
+      console.warn(`[solar-scraper] historical energy-balance request errored (day -${offset}):`, err);
+    }
+  }
+
+  return { generation, consumption };
 }
 
 function buildFailedReading(plantId: string, err: unknown): RawPlantReading {
@@ -293,26 +407,33 @@ async function scrapePlant(
 
     // energy-balance may not fire for every plant (e.g. no meter installed);
     // treat its absence as "no consumption data this run", not a hard failure.
+    // It's also the only source for the past HISTORY_DAYS days of both curves
+    // (today's generation still comes from realtimePower above) — see
+    // fetchHistoricalEnergyBalance and the recon notes at the top of this file.
     let consumptionTimeSeries: Array<{ timestamp: string; value: number }> = [];
+    let historicalGeneration: Array<{ timestamp: string; value: number }> = [];
+    let historicalConsumption: Array<{ timestamp: string; value: number }> = [];
     try {
       const energyBalanceResponse = await energyBalanceResponsePromise;
       const offsetParam = new URL(energyBalanceResponse.url()).searchParams.get("timeZone");
       const offsetHours = offsetParam ? Number(offsetParam) : -4;
       const balance = (await energyBalanceResponse.json()).data ?? {};
-      const usePower: string[] = balance.usePower ?? [];
-      const xAxis: string[] = balance.xAxis ?? [];
-      const now = Date.now();
+      consumptionTimeSeries = parseEnergyBalanceCurves(balance, offsetHours).consumption;
 
-      consumptionTimeSeries = downsample(
-        xAxis
-          .map((label, i) => ({
-            timestamp: parseLocalDateTime(label, offsetHours),
-            value: toNumber(usePower[i]) ?? 0,
-          }))
-          .filter((point) => new Date(point.timestamp).getTime() <= now)
-          .sort((a, b) => a.timestamp.localeCompare(b.timestamp)),
-        CURVE_SAMPLE_STRIDE,
-      );
+      const roarand = (await energyBalanceResponse.request().allHeaders()).roarand;
+      if (roarand) {
+        const historical = await fetchHistoricalEnergyBalance(
+          context,
+          energyBalanceResponse.url(),
+          roarand,
+          page.url(),
+          offsetHours,
+        );
+        historicalGeneration = historical.generation;
+        historicalConsumption = historical.consumption;
+      } else {
+        console.warn(`[solar-scraper] no roarand header on energy-balance response for plant ${plant.id}, skipping history`);
+      }
     } catch (err) {
       console.warn(`[solar-scraper] no energy-balance data for plant ${plant.id}:`, err);
     }
@@ -326,7 +447,9 @@ async function scrapePlant(
       monthEnergyKwh: toNumber(detail.monthEnergy ?? stationEntry.monthEnergy),
       yearEnergyKwh: toNumber(detail.yearEnergy ?? stationEntry.yearEnergy),
       cumulativeEnergyKwh: toNumber(stationEntry.cumulativeEnergy),
-      timeSeries,
+      timeSeries: [...historicalGeneration, ...timeSeries].sort((a, b) =>
+        a.timestamp.localeCompare(b.timestamp),
+      ),
       consumption: {
         dailyUseEnergyKwh: toNumber(dailyNrg.useNrg),
         monthUseEnergyKwh: toNumber(monthNrg.useNrg),
@@ -334,7 +457,9 @@ async function scrapePlant(
         dailyBuyEnergyKwh: toNumber(dailyNrg.buyNrg),
         dailyOnGridEnergyKwh: toNumber(dailyNrg.onGridNrg),
         dailySelfUseEnergyKwh: toNumber(dailyNrg.selfUseNrg),
-        timeSeries: consumptionTimeSeries,
+        timeSeries: [...historicalConsumption, ...consumptionTimeSeries].sort((a, b) =>
+          a.timestamp.localeCompare(b.timestamp),
+        ),
       },
     };
   } finally {

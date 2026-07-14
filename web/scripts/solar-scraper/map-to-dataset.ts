@@ -7,11 +7,13 @@ import { PLANTS } from "./plants.config";
 import type { RawPlantReading } from "./types";
 
 /**
- * `fusionsolar-client.ts` downsamples its curves to ~30-minute resolution
- * (~48 points/day) before this runs, so 300 comfortably keeps several days of
- * trend rather than just today; older points roll off past this cap.
+ * `fusionsolar-client.ts` now fetches a full week (today + `HISTORY_DAYS`
+ * previous days) on every run, downsampled to ~30-minute resolution
+ * (~48 points/day) — a week is ~336 points. This cap just guards against
+ * unbounded growth across merged runs; it isn't the primary way history
+ * accumulates anymore.
  */
-const MAX_MEASUREMENTS = 300;
+const MAX_MEASUREMENTS = 350;
 
 function buildEmptyDataset(plantId: string): OpenDataDataset {
   const plant = PLANTS.find((p) => p.id === plantId)!;

@@ -40,16 +40,17 @@ function buildLinePoints(
   width: number,
   height: number,
   padding: number,
+  paddingLeft: number,
 ) {
   const numericValues = measurements.map((measurement) => measurement.value);
   const minimum = Math.min(...numericValues);
   const maximum = Math.max(...numericValues);
   const range = maximum - minimum || 1;
-  const innerWidth = width - padding * 2;
+  const innerWidth = width - paddingLeft - padding;
   const innerHeight = height - padding * 2;
 
   return measurements.map((measurement, index) => {
-    const x = padding + (innerWidth * index) / Math.max(measurements.length - 1, 1);
+    const x = paddingLeft + (innerWidth * index) / Math.max(measurements.length - 1, 1);
     const normalized = (measurement.value - minimum) / range;
     const y = padding + innerHeight - normalized * innerHeight;
 
@@ -61,7 +62,8 @@ export function OpenDataSeriesChart({ dataset }: OpenDataSeriesChartProps) {
   const width = 860;
   const height = 300;
   const padding = 36;
-  const points = buildLinePoints(dataset.measurements, width, height, padding);
+  const paddingLeft = 60;
+  const points = buildLinePoints(dataset.measurements, width, height, padding, paddingLeft);
   const values = dataset.measurements.map((measurement) => measurement.value);
   const minimum = Math.min(...values);
   const maximum = Math.max(...values);
@@ -69,9 +71,10 @@ export function OpenDataSeriesChart({ dataset }: OpenDataSeriesChartProps) {
   const pathData = points
     .map((point, index) => `${index === 0 ? "M" : "L"}${point.x},${point.y}`)
     .join(" ");
-  const fillPath = `${pathData} L ${width - padding},${height - padding} L ${padding},${height - padding} Z`;
+  const fillPath = `${pathData} L ${width - padding},${height - padding} L ${paddingLeft},${height - padding} Z`;
   const showCircles = points.length <= MAX_VISIBLE_CIRCLES;
   const labelIndices = pickLabelIndices(dataset.measurements.length, MAX_AXIS_LABELS);
+  const yAxisRows = [0, 1, 2, 3];
 
   return (
     <section className="dataset-chart-card">
@@ -101,10 +104,28 @@ export function OpenDataSeriesChart({ dataset }: OpenDataSeriesChartProps) {
             </linearGradient>
           </defs>
 
-          {[0, 1, 2, 3].map((row) => {
+          {yAxisRows.map((row) => {
             const y = padding + (row * (height - padding * 2)) / 3;
 
-            return <line key={row} x1={padding} x2={width - padding} y1={y} y2={y} className="dataset-chart-grid" />;
+            return <line key={row} x1={paddingLeft} x2={width - padding} y1={y} y2={y} className="dataset-chart-grid" />;
+          })}
+
+          {yAxisRows.map((row) => {
+            const y = padding + (row * (height - padding * 2)) / 3;
+            const value = maximum - (row / 3) * (maximum - minimum);
+
+            return (
+              <text
+                key={row}
+                x={paddingLeft - 10}
+                y={y}
+                dy="0.32em"
+                textAnchor="end"
+                className="dataset-chart-ylabel"
+              >
+                {formatSummaryValue(value)}
+              </text>
+            );
           })}
 
           <path d={fillPath} className="dataset-chart-area" fill={`url(#chart-fill-${dataset.id})`} />
