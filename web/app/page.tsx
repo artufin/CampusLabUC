@@ -23,6 +23,7 @@ export default async function Home() {
     <SiteShell currentPath="/">
       <HomeHero />
 
+      <div className="home-bg-fixed">
       {/* Sobre la iniciativa */}
       <section className="s s--white">
         <div className="wrap">
@@ -87,7 +88,7 @@ export default async function Home() {
             ¿Qué buscamos?
           </p>
           <h2 className="sh" style={{ marginBottom: 48 }}>Objetivos</h2>
-          <div className="g3 g3--objetivos-bg">
+          <div className="g3">
             <div className="obj-card">
               <div className="obj-card__n">01</div>
               <p className="obj-card__t">
@@ -236,6 +237,7 @@ export default async function Home() {
       </section>
 
       <LatestExperiencesCarousel items={experiences} />
+      </div>
 
       <SponsorBand sponsors={sponsors} />
 
